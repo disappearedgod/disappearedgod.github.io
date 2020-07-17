@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>JavaScript|JVM|前端面试之路</title>
+  <icon>http://yoursite.com/icon.png</icon>
+  <subtitle>Javascript|Java|Python|Rust</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-07-17T16:22:56.036Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Weihong Xu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>中间件策略</title>
+    <link href="http://yoursite.com/2020/07/18/%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%96%E7%95%A5/"/>
+    <id>http://yoursite.com/2020/07/18/%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%96%E7%95%A5/</id>
+    <published>2020-07-17T16:12:57.000Z</published>
+    <updated>2020-07-17T16:22:56.036Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;中间件策略&lt;/p&gt;
+&lt;h1 id=&quot;来源&quot;&gt;&lt;a href=&quot;#来源&quot; class=&quot;headerlink&quot; title=&quot;来源&quot;&gt;&lt;/a&gt;来源&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://jm.taobao.org/archives/page/46/&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="中间件" scheme="http://yoursite.com/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
+      <category term="博客" scheme="http://yoursite.com/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode| Array |Two Pointers| Stack|42. Trapping Rain Water</title>
+    <link href="http://yoursite.com/2020/07/17/LeetCode|%20Array%20|Two%20Pointers|%20Stack|42.%20Trapping%20Rain%20Water/"/>
+    <id>http://yoursite.com/2020/07/17/LeetCode|%20Array%20|Two%20Pointers|%20Stack|42.%20Trapping%20Rain%20Water/</id>
+    <published>2020-07-17T05:12:57.000Z</published>
+    <updated>2020-07-17T07:59:48.235Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem &quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode.com/problems/trapping-rain-water/&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|String|Backtracking|17. Letter Combinations of a Phone Number</title>
+    <link href="http://yoursite.com/2020/07/17/LeetCode|String|Backtracking|17.%20Letter%20Combinations%20of%20a%20Phone%20Number/"/>
+    <id>http://yoursite.com/2020/07/17/LeetCode|String|Backtracking|17.%20Letter%20Combinations%20of%20a%20Phone%20Number/</id>
+    <published>2020-07-17T05:12:57.000Z</published>
+    <updated>2020-07-17T07:57:14.028Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem &quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode.com/problems/trapping-rain-water/&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|String|Backtrack|22. Generate Parentheses</title>
+    <link href="http://yoursite.com/2020/07/17/LeetCode|String|Backtrack|22.%20Generate%20Parentheses/"/>
+    <id>http://yoursite.com/2020/07/17/LeetCode|String|Backtrack|22.%20Generate%20Parentheses/</id>
+    <published>2020-07-16T21:12:57.000Z</published>
+    <updated>2020-07-17T19:09:02.779Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h1&gt;&lt;p&gt;Given n pairs of parentheses, write a function to
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|String|Backtrack|2. Add Two Numbers</title>
+    <link href="http://yoursite.com/2020/07/17/LeetCode|String|Backtrack|2.%20Add%20Two%20Numbers/"/>
+    <id>http://yoursite.com/2020/07/17/LeetCode|String|Backtrack|2.%20Add%20Two%20Numbers/</id>
+    <published>2020-07-16T21:12:57.000Z</published>
+    <updated>2020-07-17T08:00:15.999Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode.com/problems/add-two-numbers/&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|String|Roman to Integer</title>
+    <link href="http://yoursite.com/2020/07/17/%20LeetCode|String|13Roman%20to%20Integer/"/>
+    <id>http://yoursite.com/2020/07/17/%20LeetCode|String|13Roman%20to%20Integer/</id>
+    <published>2020-07-16T19:12:57.000Z</published>
+    <updated>2020-07-17T08:00:41.445Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode.com/problems/roman-to-integer/&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|String|12. Integer to Roman</title>
+    <link href="http://yoursite.com/2020/07/17/LeetCode|String|12.%20Integer%20to%20Roman/"/>
+    <id>http://yoursite.com/2020/07/17/LeetCode|String|12.%20Integer%20to%20Roman/</id>
+    <published>2020-07-16T19:12:57.000Z</published>
+    <updated>2020-07-17T09:48:47.116Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem &quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode.com/problems/integer-to-roman/&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|String|344. Reverse String</title>
+    <link href="http://yoursite.com/2020/07/17/LeetCode|String|344.%20Reverse%20String/"/>
+    <id>http://yoursite.com/2020/07/17/LeetCode|String|344.%20Reverse%20String/</id>
+    <published>2020-07-16T19:12:57.000Z</published>
+    <updated>2020-07-17T08:00:00.630Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h1&gt;&lt;p&gt;Write a function that reverses a string. The
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|String|937. Reorder Data in Log Files</title>
+    <link href="http://yoursite.com/2020/07/17/LeetCode|String|937._Reorder%20Data%20in%20Log%20Files/"/>
+    <id>http://yoursite.com/2020/07/17/LeetCode|String|937._Reorder%20Data%20in%20Log%20Files/</id>
+    <published>2020-07-16T18:12:57.000Z</published>
+    <updated>2020-07-17T08:00:09.136Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h1&gt;&lt;p&gt;You have an array of logs.  Each log is a space
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|Greedy|200 Number of Islands</title>
+    <link href="http://yoursite.com/2020/07/15/LeetCode|Greedy|200%20Number%20of%20Islands%20/"/>
+    <id>http://yoursite.com/2020/07/15/LeetCode|Greedy|200%20Number%20of%20Islands%20/</id>
+    <published>2020-07-15T04:12:57.000Z</published>
+    <updated>2020-07-17T07:59:51.113Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h1&gt;&lt;p&gt;Given a 2d grid map of ‘1’s (land) and ‘0’s
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode| Slip_Window| 3_Longest_Substring_Without_Repeating_Characters</title>
+    <link href="http://yoursite.com/2020/07/14/LeetCode-Slip_Window-3_Longest_Substring_Without_Repeating_Characters/"/>
+    <id>http://yoursite.com/2020/07/14/LeetCode-Slip_Window-3_Longest_Substring_Without_Repeating_Characters/</id>
+    <published>2020-07-14T04:12:57.000Z</published>
+    <updated>2020-07-17T07:58:12.068Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;Given a string, find the length of the longest substring without
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/tags/LeetCode/"/>
+    
+      <category term="Slip_Window" scheme="http://yoursite.com/tags/Slip-Window/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|stack|56 Merge Intervals</title>
+    <link href="http://yoursite.com/2020/07/14/LeetCode_56%20-%20Merge%20Intervals/"/>
+    <id>http://yoursite.com/2020/07/14/LeetCode_56%20-%20Merge%20Intervals/</id>
+    <published>2020-07-14T04:12:57.000Z</published>
+    <updated>2020-07-17T07:58:35.715Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode.com/problems/merge-intervals/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/tags/LeetCode/"/>
+    
+      <category term="stack" scheme="http://yoursite.com/tags/stack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|Array|88 Merge Sorted Array</title>
+    <link href="http://yoursite.com/2020/07/14/LeetCode_88%20-%20Merge%20Sorted%20Array/"/>
+    <id>http://yoursite.com/2020/07/14/LeetCode_88%20-%20Merge%20Sorted%20Array/</id>
+    <published>2020-07-14T04:12:57.000Z</published>
+    <updated>2020-07-17T07:58:49.014Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/merge-sorted-array/&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|Array|350 Intersection_of_Two_Arrays_II</title>
+    <link href="http://yoursite.com/2020/07/14/LeetCode_Array_350_Intersection_of_Two_Arrays_II/"/>
+    <id>http://yoursite.com/2020/07/14/LeetCode_Array_350_Intersection_of_Two_Arrays_II/</id>
+    <published>2020-07-14T04:12:57.000Z</published>
+    <updated>2020-07-17T07:59:01.974Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode.com/problems/intersection-of-two-arrays-ii/&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|DFS|198 HouseRobber</title>
+    <link href="http://yoursite.com/2020/07/14/LeetCode_DFS_198_HouseRobber/"/>
+    <id>http://yoursite.com/2020/07/14/LeetCode_DFS_198_HouseRobber/</id>
+    <published>2020-07-14T04:12:57.000Z</published>
+    <updated>2020-07-17T07:59:09.625Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem &quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode.com/problems/house-robber/&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/tags/LeetCode/"/>
+    
+      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|DFS|515 FindLargestValueinEachTreeRow</title>
+    <link href="http://yoursite.com/2020/07/14/LeetCode_DFS_515_FindLargestValueinEachTreeRow/"/>
+    <id>http://yoursite.com/2020/07/14/LeetCode_DFS_515_FindLargestValueinEachTreeRow/</id>
+    <published>2020-07-14T04:12:57.000Z</published>
+    <updated>2020-07-17T07:59:14.056Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;ou need to find the largest value in each row of a binary
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/tags/LeetCode/"/>
+    
+      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|24 Swap Node In Pairs</title>
+    <link href="http://yoursite.com/2020/07/14/LeetCode_24_SwapNodeInPairs/"/>
+    <id>http://yoursite.com/2020/07/14/LeetCode_24_SwapNodeInPairs/</id>
+    <published>2020-07-14T04:12:57.000Z</published>
+    <updated>2020-07-17T07:58:18.233Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h1&gt;&lt;p&gt;Given a linked list, swap every two adjacent
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/tags/LeetCode/"/>
+    
+      <category term="TwoPointer" scheme="http://yoursite.com/tags/TwoPointer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|DFS|257 Binary_Tree_Paths</title>
+    <link href="http://yoursite.com/2020/07/14/LeetCode_257_Binary_Tree_Paths/"/>
+    <id>http://yoursite.com/2020/07/14/LeetCode_257_Binary_Tree_Paths/</id>
+    <published>2020-07-14T04:12:57.000Z</published>
+    <updated>2020-07-17T07:58:25.570Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h1&gt;&lt;p&gt;Given a binary tree, return all root-to-leaf
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/tags/LeetCode/"/>
+    
+      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|Greedy|455 Assign Cookies</title>
+    <link href="http://yoursite.com/2020/07/14/LeetCode_Greedy_455_Assign%20Cookies/"/>
+    <id>http://yoursite.com/2020/07/14/LeetCode_Greedy_455_Assign%20Cookies/</id>
+    <published>2020-07-14T04:12:57.000Z</published>
+    <updated>2020-07-17T07:59:27.307Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h1&gt;&lt;p&gt;Assume you are an awesome parent and want to give
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode|Two_Pointer|16 3Sum Closet</title>
+    <link href="http://yoursite.com/2020/07/14/LeetCode_Two_Pointer_16-3Sum_Closet/"/>
+    <id>http://yoursite.com/2020/07/14/LeetCode_Two_Pointer_16-3Sum_Closet/</id>
+    <published>2020-07-14T04:12:57.000Z</published>
+    <updated>2020-07-17T07:59:43.777Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;16—&lt;a href=&quot;https://leetcode.com/problems/3sum-closest/&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+  </entry>
+  
+</feed>
