@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>LeetCode|String|Roman to Integer | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ProblemRoman numerals are represented by seven different symbols: I, V, X, L, C, D and M.  Symbol       ValueI             1V             5X             10L             50C             100D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode|String|Roman to Integer">
+<meta property="og:url" content="http://yoursite.com/2020/07/17/%20LeetCode|String|13Roman%20to%20Integer/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ProblemRoman numerals are represented by seven different symbols: I, V, X, L, C, D and M.  Symbol       ValueI             1V             5X             10L             50C             100D">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-16T19:12:57.000Z">
+<meta property="article:modified_time" content="2020-07-17T08:00:41.445Z">
+<meta property="article:author" content="Weihong Xu">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post- LeetCode|String|13Roman to Integer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/17/%20LeetCode%7CString%7C13Roman%20to%20Integer/" class="article-date">
+  <time datetime="2020-07-16T19:12:57.000Z" itemprop="datePublished">2020-07-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LeetCode|String|Roman to Integer
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><a href="https://leetcode.com/problems/roman-to-integer/" target="_blank" rel="noopener">Problem</a></h1><p>Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.</p>
+<blockquote>
+<p>Symbol       Value<br>I             1<br>V             5<br>X             10<br>L             50<br>C             100<br>D             500<br>M             1000</p>
+</blockquote>
+<p>For example, two is written as II in Roman numeral, just two one’s added together. Twelve is written as, XII, which is simply X + II. The number twenty seven is written as XXVII, which is XX + V + II.</p>
+<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:</p>
+<p>I can be placed before V (5) and X (10) to make 4 and 9.<br>X can be placed before L (50) and C (100) to make 40 and 90.<br>C can be placed before D (500) and M (1000) to make 400 and 900.<br>Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.</p>
+<p>Example 1:</p>
+<blockquote>
+<p>Input: “III”<br>Output: 3</p>
+</blockquote>
+<p> Example 2:</p>
+<blockquote>
+<p>Input: “IV”<br>Output: 4</p>
+</blockquote>
+<p>Example 3:</p>
+<blockquote>
+<p>Input: “IX”<br>Output: 9</p>
+</blockquote>
+<p>Example 4:</p>
+<blockquote>
+<p>Input: “LVIII”<br>Output: 58<br>Explanation: L = 50, V= 5, III = 3.</p>
+</blockquote>
+<p>Example 5:</p>
+<blockquote>
+<p>Input: “MCMXCIV”<br>Output: 1994<br>Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</p>
+</blockquote>
+<h1 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> romanToInt = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> val = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length; i++)&#123;</span><br><span class="line">        <span class="comment">// number &lt; undefined is false</span></span><br><span class="line">        <span class="keyword">if</span>(symbol[s[i]] &lt; symbol[s[i+<span class="number">1</span>]])</span><br><span class="line">            val -= symbol[s[i]] ;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            val += symbol[s[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(val)</span><br><span class="line">    <span class="keyword">return</span> val;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> symbol =&#123;</span><br><span class="line">    <span class="string">"I"</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">"V"</span>:<span class="number">5</span>,</span><br><span class="line">    <span class="string">"X"</span>:<span class="number">10</span>,</span><br><span class="line">    <span class="string">"L"</span>:<span class="number">50</span>,</span><br><span class="line">    <span class="string">"C"</span>:<span class="number">100</span>,</span><br><span class="line">    <span class="string">"D"</span>:<span class="number">500</span>,</span><br><span class="line">    <span class="string">"M"</span>:<span class="number">1000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/17/%20LeetCode|String|13Roman%20to%20Integer/" data-id="ckcpacs020000u4tlabnna3js" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/17/LeetCode%7CString%7CBacktrack%7C2.%20Add%20Two%20Numbers/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          LeetCode|String|Backtrack|2. Add Two Numbers
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/17/LeetCode%7CString%7C12.%20Integer%20to%20Roman/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">LeetCode|String|12. Integer to Roman</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%8D%9A%E5%AE%A2/">博客</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graph/" rel="tag">Graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slip-Window/" rel="tag">Slip_Window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TwoPointer/" rel="tag">TwoPointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Array/" style="font-size: 13.33px;">Array</a> <a href="/tags/DFS/" style="font-size: 16.67px;">DFS</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/Slip-Window/" style="font-size: 10px;">Slip_Window</a> <a href="/tags/TwoPointer/" style="font-size: 10px;">TwoPointer</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/18/%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%96%E7%95%A5/">中间件策略</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7C%20Array%20%7CTwo%20Pointers%7C%20Stack%7C42.%20Trapping%20Rain%20Water/">LeetCode| Array |Two Pointers| Stack|42. Trapping Rain Water</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktracking%7C17.%20Letter%20Combinations%20of%20a%20Phone%20Number/">LeetCode|String|Backtracking|17. Letter Combinations of a Phone Number</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktrack%7C22.%20Generate%20Parentheses/">LeetCode|String|Backtrack|22. Generate Parentheses</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktrack%7C2.%20Add%20Two%20Numbers/">LeetCode|String|Backtrack|2. Add Two Numbers</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Weihong Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

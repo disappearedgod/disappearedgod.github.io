@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Weihong Xu">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-项目介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/10/%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" class="article-date">
+  <time datetime="2020-07-09T16:01:03.216Z" itemprop="datePublished">2020-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/10/%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/">项目介绍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##项目点</p>
+<ul>
+<li><p>为什么用这个</p>
+</li>
+<li><p>替代方案</p>
+</li>
+<li><p>如何埋点</p>
+<ul>
+<li><a href="https://tech.meituan.com/2019/08/15/mtflexbox-automation-buried-point-exploration.html" target="_blank" rel="noopener">MTFlexbox自动化埋点探索</a></li>
+<li><a href="https://www.cnblogs.com/30go/p/10421507.html" target="_blank" rel="noopener">前端埋点的那些事</a></li>
+<li><a href="https://testerhome.com/topics/21321" target="_blank" rel="noopener">埋点自动化测试 Pro</a></li>
+<li><a href="https://segmentfault.com/a/1190000014922668" target="_blank" rel="noopener">web 埋点实现原理了解一下</a></li>
+<li><a href="https://juejin.im/entry/5d5c00f55188255d3d2997e1" target="_blank" rel="noopener">有赞埋点实践</a></li>
+<li><a href="https://www.jianshu.com/p/30f44482ae3b" target="_blank" rel="noopener">FaceBook埋点测试</a></li>
+</ul>
+</li>
+<li><p>QBS</p>
+</li>
+<li><p>流量缺失了怎么办</p>
+</li>
+<li><p>并发</p>
+</li>
+<li><p>代码质量（安全）sql注入</p>
+</li>
+<li><p>（安全）压力测试 &amp; 测试指标</p>
+</li>
+<li><p>服务端QPS &amp; 页面呈现fps</p>
+</li>
+<li><p>读写锁/信号量/管道-&gt;并发 /哲学家餐桌 死锁 互斥量 <a href="https://juejin.im/post/5dde2b816fb9a0719b30726c" target="_blank" rel="noopener">Redis 的分布式锁实现</a></p>
+<ul>
+<li><p>信号量<a href="https://www.jianshu.com/p/c1015f5ffa74" target="_blank" rel="noopener">进程间通信IPC (InterProcess Communication)</a>  </p>
+</li>
+<li><p><a href="https://juejin.im/post/5dde2b816fb9a0719b30726c" target="_blank" rel="noopener">Node.js 中实践基于 Redis 的分布式锁实现</a></p>
+</li>
+<li><p>安全性：<strong>上了锁。</strong>所谓一个萝卜一个坑，第一点要做的是上锁，在任意时刻要保证仅有一个客户端持有该锁。</p>
+<ul>
+<li>上锁 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setnx key value  </span><br><span class="line"> 		expire key seconds</span><br></pre></td></tr></table></figure>
+<ul>
+<li>value：建议设置为一个随机值，在释放锁的时候会进一步讲解</li>
+<li>EX seconds：设置的过期时间</li>
+<li>PX milliseconds：也是设置过期时间，单位不一样</li>
+<li>NX|XX：NX 同 setnx 效果是一样的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set key value [EX seconds] [PX milliseconds] [NX|XX]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>释放锁</p>
+<ul>
+<li><p>加锁的过程中建议把 value 设置为一个随机值，主要是为了更安全的释放锁，在 del key 之前先判断这个 key 存在且 value 等于自己指定的值才执行删除操作。</p>
+</li>
+<li><p>代码</p>
+<pre><code>if redis.call(&quot;get&quot;,KEYS[1]) == ARGV[1] then
+    return redis.call(&quot;del&quot;,KEYS[1])
+else
+    return 0
+end</code></pre></li>
+</ul>
+</li>
+<li><p>死锁：<strong>锁都没打开。</strong>造成死锁可能是由于某种原因，本该释放的锁没有被释放，因此在上锁的时候可以同步的设置过期时间，如果由于客户端自己的原因没有被释放，也要保证锁能够自动释放。</p>
+</li>
+<li><p>容错：最<strong>多有多少不打开。</strong>容错是在多节点的模式下需要考虑的，只要能保证 N/2+1 节点可用，客户端就可以成功获取、释放锁。</p>
+</li>
+</ul>
+</li>
+<li><p>代码扫描   <a href="https://github.com/google/eng-practices" target="_blank" rel="noopener">Google</a></p>
+<ul>
+<li><p>Security Standards:  CWE, OWASP, CERT, PCI DSS, DISA STIG, and ISO/IEC TS 17961.<br>Security Vulnerability Detection: SQL Injection, Tainted Data, Buffer Overflow, Vulnerable Coding Practices, and many more.</p>
+</li>
+<li><p>Bug, Quality Issue, and Code Smell Detection: Null Pointer Dereferences/Exceptions, Memory/Resource Leaks, Uncaught Exceptions, and many more.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>##语言</p>
+<ul>
+<li>Go 语言</li>
+<li>JS 语言</li>
+<li>Java 语言</li>
+<li>Python 语言 </li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/10/%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" data-id="ckcms137v001j9l9k1o8l5038" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-缓存" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/09/%E7%BC%93%E5%AD%98/" class="article-date">
+  <time datetime="2020-07-09T11:02:03.195Z" itemprop="datePublished">2020-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/09/%E7%BC%93%E5%AD%98/">缓存</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>#1.性能优化角度<br><a href="https://github.com/amandakelake/blog/issues/43" target="_blank" rel="noopener">来自</a><br>##缓存分类</p>
+<ul>
+<li>cookie:<ul>
+<li>好处：简明有效，少量不敏感数据</li>
+<li>缺点：4K， 不安全（暴露session）</li>
+</ul>
+</li>
+<li>Web Storage<ul>
+<li>对比：<ul>
+<li>好处：容量稍微大一点（5M），localStorage 可做持久化数据存储</li>
+<li>机制：事件通知机制 - 数据发送给监听者</li>
+<li>缺点： local data 被篡改； XSS攻击</li>
+</ul>
+</li>
+<li>注意：<ul>
+<li>读取到HTML 和 JS代码</li>
+<li>文件的版本： 更新控制会带来更多的代码层面的<strong>维护成本</strong></li>
+</ul>
+</li>
+<li>适合关键的业务数据 </li>
+</ul>
+</li>
+<li>indexDB：<ul>
+<li>结构化的、事务型的、高性能的NoSQL</li>
+<li>同步/异步API</li>
+</ul>
+</li>
+<li>PWA（Service Worker）：<ul>
+<li>替代 Application Cache（Manifest）  </li>
+<li>独立线程，后台运行</li>
+<li>三个限制：<ul>
+<li>不能访问DOM</li>
+<li>同步API 不能用</li>
+<li>需要HTTPS协议</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>缓存实践提示：<ul>
+<li>配置超长时间的本地缓存 —— 节省带宽，提高性能</li>
+<li>精确缓存控制：采用内容摘要作为缓存更新依据</li>
+<li>优化网络请求：静态资源CDN部署</li>
+<li>平滑升级：资源发布路径实现非覆盖发布</li>
+</ul>
+</li>
+</ul>
+<p>#2.浏览器存储机制：<br><a href="https://github.com/amandakelake/blog/issues/41" target="_blank" rel="noopener">这里</a></p>
+<h2 id="强缓存，协商缓存"><a href="#强缓存，协商缓存" class="headerlink" title="强缓存，协商缓存"></a>强缓存，协商缓存</h2><ul>
+<li>浏览器加载 <ul>
+<li>-&gt; expires/cache-control <ul>
+<li>-&gt; 命中强缓存（找到）</li>
+<li>-&gt;  没有命中强缓存<ul>
+<li>-&gt; last-modified和etag 命中协商缓存 </li>
+<li>服务器会将这个请求返回</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>否则，从服务器加载资源</li>
+</ul>
+</li>
+</ul>
+<p>###强缓存<br>通过 Expire 和 Cache-Control 两种响应头实现</p>
+<ul>
+<li>Expire 是http1.0提出的一个表示资源过期的header<ul>
+<li>它描述的是一个绝对时间，由服务器返回<code>Cache-Control: max-age=315360000</code></li>
+<li>Cache-Control: <ul>
+<li>no-cache 缓存到local缓冲区</li>
+<li>no-store才是真正的不缓存数据到本地</li>
+<li>可以被所有用户缓存（共享），终端和CDN等中间代理服务器 </li>
+<li>private只能被终端浏览器缓存（而且是私有缓存）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h3><ul>
+<li><p>协商缓存命中</p>
+<ul>
+<li>请求响应返回的http状态为304</li>
+<li>显示一个Not Modified的字符串</li>
+</ul>
+</li>
+<li><p>对Header进行管理</p>
+<ul>
+<li>Last-Modified, If-Modified-Since</li>
+<li>ETag, If-None-Match</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>Last-Modified， If-Modified-Since<ul>
+<li>Last-Modified 表示本地最后修改日期。浏览器会在request hearder加上<code>Last-Modified</code>的值</li>
+<li>如果本地打开缓存文件，会造成修改 -&gt; HTTP/1.1 出现了ETag</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li>ETag, If-None-Match：<br>ETag 就像是一个指纹 资源变化会导致ETag变化，跟最后修改时间没关系，（Unicode）<ul>
+<li>If-None-Match的header会将上次返回的Etag发送给服务器，询问该资源的Etag是否有更新，有变动就会发送新的资源回来</li>
+</ul>
+</li>
+</ol>
+<p>###为什么用ETag：</p>
+<ol>
+<li>文件不改变，Last-Modified 在变动</li>
+<li>文件修改非常频繁（1sN次）</li>
+<li>服务器不能精确的到文件的最后修改时间</li>
+</ol>
+<h3 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h3><ul>
+<li>200: 强缓Expires/Cache-Control存失效时，返回新的资源文件</li>
+<li>200(from cache): 强缓Expires/Cache-Control两者都存在，未过期，Cache-Control优先Expires时，浏览器从本地获取资源成功</li>
+<li>304(Not Modified )：协商缓存Last-modified/Etag没有过期时，服务端返回状态码304</li>
+</ul>
+<p>##如何选择合适的缓存</p>
+<p>大致的顺序</p>
+<p>Cache-Control —— 请求服务器之前<br>Expires —— 请求服务器之前<br>If-None-Match (Etag) —— 请求服务器<br>If-Modified-Since (Last-Modified) —— 请求服务器</p>
+<p>#3.数据存储：</p>
+<h2 id="cookie、Storage-amp-indexedDB"><a href="#cookie、Storage-amp-indexedDB" class="headerlink" title="cookie、Storage&amp; indexedDB"></a>cookie、Storage&amp; indexedDB</h2><p>#4. 离线应用缓存：</p>
+<h2 id="App-Cache-gt-Manifest"><a href="#App-Cache-gt-Manifest" class="headerlink" title="App Cache =&gt; Manifest"></a>App Cache =&gt; Manifest</h2><h2 id="Service-Worker"><a href="#Service-Worker" class="headerlink" title="Service Worker"></a>Service Worker</h2><h2 id="页面缓存优化"><a href="#页面缓存优化" class="headerlink" title="页面缓存优化"></a>页面缓存优化</h2><ul>
+<li><a href="https://segmentfault.com/a/1190000020867090" target="_blank" rel="noopener">前端性能优化指南</a></li>
+<li><a href="https://juejin.im/post/5e61a84f518825494822d21c#heading-2" target="_blank" rel="noopener">商城秒杀系统优化方案</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/93163523" target="_blank" rel="noopener">浏览器缓存的这些知识</a></li>
+<li><a href="https://www.cnblogs.com/cckui/p/11506514.html" target="_blank" rel="noopener">HTTP 强制缓存和协商缓存</a></li>
+<li><a href="https://juejin.im/post/5b0bff30f265da08f76cc6f0" target="_blank" rel="noopener">前端性能优化–从 10 多秒到 1.05 秒</a></li>
+<li><a href="https://juejin.im/post/5a966bd16fb9a0635172a50a" target="_blank" rel="noopener">2018 前端性能优化清单</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/09/%E7%BC%93%E5%AD%98/" data-id="ckcms137u001e9l9k8bs3cpwa" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-RTMP 延迟分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/09/RTMP%20%E5%BB%B6%E8%BF%9F%E5%88%86%E6%9E%90/" class="article-date">
+  <time datetime="2020-07-08T19:10:17.130Z" itemprop="datePublished">2020-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/09/RTMP%20%E5%BB%B6%E8%BF%9F%E5%88%86%E6%9E%90/">RTMP 延迟分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="延迟分析"><a href="#延迟分析" class="headerlink" title="延迟分析"></a>延迟分析</h2><p>#RTMP<br>RTMP是Real Time Messaging Protocol（实时消息传输协议）的首字母缩写。该协议基于TCP，是一个协议族，包括RTMP基本协议及RTMPT/RTMPS/RTMPE等多种变种。</p>
+<p>RTMP是一种设计用来进行实时数据通信的网络协议，主要用来在Flash/AIR平台和支持RTMP协议的流媒体/交互服务器之间进行音视频和数据通信。支持该协议的软件包括Adobe Media Server/Ultrant Media Server/red5等。</p>
+<ul>
+<li>RTMP工作在TCP之上，默认使用端口1935；</li>
+<li>RTMPE在RTMP的基础上增加了加密功能；</li>
+<li>RTMPT封装在HTTP请求之上，可穿透防火墙；</li>
+<li>RTMPS类似RTMPT，增加了TLS/SSL的安全功能。</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/5ce11c20a9df" target="_blank" rel="noopener">来自</a></p>
+<h1 id="RTMP-延迟分析"><a href="#RTMP-延迟分析" class="headerlink" title="RTMP 延迟分析"></a>RTMP 延迟分析</h1><p>RTMP和HLS基本上可以覆盖所有客户端观看</p>
+<ul>
+<li>HLS主要是延时比较大</li>
+<li>RTMP主要优势在于延时低</li>
+</ul>
+<h1 id="应用场景（Verify）"><a href="#应用场景（Verify）" class="headerlink" title="应用场景（Verify）"></a>应用场景（Verify）</h1><p>低延时应用场景包括：</p>
+<ul>
+<li><p>互动式直播：譬如2013年大行其道的美女主播，游戏直播等等。</p>
+<ul>
+<li>各种主播，流媒体分发给用户观看。用户可以文字聊天和主播互动。</li>
+</ul>
+</li>
+<li><p>视频会议：我们要是有同事出差在外地，就用视频会议开内部会议。</p>
+<ul>
+<li>其实会议1秒延时无所谓，因为人家讲完话后，其他人需要思考。</li>
+<li>思考的延时也会在1秒左右。当然如果用视频会议吵架就不行。</li>
+</ul>
+</li>
+<li><p>其他：监控，直播也有些地方需要对延迟有要求。</p>
+<ul>
+<li>互联网上RTMP协议的延迟基本上能够满足要求。<h1 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h1></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><a href="https://draveness.me/whys-the-design-live-streaming-latency/" target="_blank" rel="noopener">为什么流媒体直播的延迟很高</a></li>
+<li><a href="https://blog.csdn.net/lcalqf/article/details/52993630" target="_blank" rel="noopener">RTMP 延迟分析</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/73984438" target="_blank" rel="noopener">视频和视频帧：ffmpeg的RTMP推流</a></li>
+<li><a href="https://www.jianshu.com/p/c04d810b7562" target="_blank" rel="noopener">视频传输协议详解（RTMP、RTSP、HLS）</a></li>
+<li><a href="https://www.jianshu.com/p/5ce11c20a9df" target="_blank" rel="noopener">RTMP协议解析（一） —— 基本了解</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27368329" target="_blank" rel="noopener">流媒体系统的RTMP协议</a></li>
+<li><a href="https://blog.csdn.net/dong_beijing/article/details/60776248" target="_blank" rel="noopener">通过信号量和共享内存实现h264码流在不同进程间传输</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/09/RTMP%20%E5%BB%B6%E8%BF%9F%E5%88%86%E6%9E%90/" data-id="ckcms137n000s9l9kcoii3zt1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-测试-google-测试" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/09/%E6%B5%8B%E8%AF%95-google-%E6%B5%8B%E8%AF%95/" class="article-date">
+  <time datetime="2020-07-08T18:12:32.696Z" itemprop="datePublished">2020-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/09/%E6%B5%8B%E8%AF%95-google-%E6%B5%8B%E8%AF%95/">测试-google-测试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Google测试"><a href="#Google测试" class="headerlink" title="Google测试"></a>Google测试</h1><p>##软件测试开发工程师</p>
+<ul>
+<li>职责：负责可测试性和测试自动化体系的长期有效性。<ul>
+<li>扮演<strong>质量顾问</strong>的角色</li>
+<li>在<strong>单元测试</strong>方面给予开发人员支持</li>
+<li>为开发人员提供<strong>测试框架</strong>，方便开发提高<em><strong><em>测试效率</em></strong></em></li>
+<li>参与设计评审、重构代码增加可测试性，编写<strong>单元测试框架</strong>和<strong>自动化测试框架</strong></li>
+<li>更加关注于质量提升和<strong>测试覆盖率(code coverage)</strong>的增加，SET写代码的目的是可以让SWE测试自己的功能</li>
+</ul>
+</li>
+</ul>
+<p>##测试工程师</p>
+<ul>
+<li>职责：评估对用户的影响以及软件产品整体目标上的风险<ul>
+<li>从用户的角度来思考质量方面各种问题</li>
+<li>从开发角度来看，他们编写用户使用场景方面的自动化用例代码</li>
+<li>从产品角度来看，他们评估整体测试覆盖度，并验证其他工程师角色在测试方面合作的有效性</li>
+<li>产品专家、质量顾问和风险分析师</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<h1 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h1><h2 id="postman"><a href="#postman" class="headerlink" title="postman"></a>postman</h2><ul>
+<li><a href="https://www.jianshu.com/p/77f4f9175028" target="_blank" rel="noopener">postman最详细的中文使用教程</a></li>
+</ul>
+<h2 id="性能测试工具"><a href="#性能测试工具" class="headerlink" title="性能测试工具"></a>性能测试工具</h2><ul>
+<li><a href="https://testerhome.com/topics/17068" target="_blank" rel="noopener">wrk,ab,locust,Jmeter 压测结果比较</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/71594831" target="_blank" rel="noopener">记一次使用NodeJS做服务器压力测试</a></li>
+<li><a href="https://juejin.im/post/5b827cbbe51d4538c021f2da" target="_blank" rel="noopener">对node工程进行压力测试与性能分析</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/09/%E6%B5%8B%E8%AF%95-google-%E6%B5%8B%E8%AF%95/" data-id="ckcms137w001l9l9k5z7r9i1e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Angular &amp; React &amp; Vue 对比" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/09/Angular%20&%20React%20&%20Vue%20%E5%AF%B9%E6%AF%94/" class="article-date">
+  <time datetime="2020-07-08T16:24:23.043Z" itemprop="datePublished">2020-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/09/Angular%20&%20React%20&%20Vue%20%E5%AF%B9%E6%AF%94/">Angular &amp; React &amp; Vue 对比</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="Angular-amp-React-amp-Vue-对比"><a href="#Angular-amp-React-amp-Vue-对比" class="headerlink" title="Angular &amp; React &amp; Vue 对比"></a>Angular &amp; React &amp; Vue 对比</h2><p>#相同点：</p>
+<ol>
+<li>单页应用程序</li>
+<li>组建管理 Component</li>
+<li>数据流动</li>
+<li>后段API如何进行 路径如何处理</li>
+<li>css/js/</li>
+<li>webpeck</li>
+</ol>
+<p>#不同点:</p>
+<ol>
+<li>React - 面向网页显示<br> jsx - 组建都涵盖在这一个文件中（html / css/ js）<br> 整体设计变化不大<br> 容易潜入网页</li>
+<li>Angular - 面向整体应用开发（应用开发）<ul>
+<li>精简架构设计 提供TS （AngularJs以后）</li>
+<li>html/cs/js 分开</li>
+</ul>
+</li>
+<li>Vue 界面显示（类似React 但不用选择第三方插件 也没有太多选择）<ul>
+<li>本身组建分开 简单</li>
+<li>一直在追赶Angular</li>
+<li>没有大公司的支持</li>
+</ul>
+</li>
+</ol>
+<p>##React &amp; Vue：不断增加第三方插件</p>
+<hr>
+<p>#Angular</p>
+<ol>
+<li>多Component 后可以lazy mounting </li>
+<li>嵌入多个moudule</li>
+<li>Single Page Component（React类似） App Component - index.html<br> 3.1 Rounting: (单页应用开发之前 rount 是在后端，计算出html数据推送到前端。 ) <pre><code>* 单页应用，后段只管理数据
+* Angular framework 里面（多个lib，api请求的lib，rounting moudule） 所以称之为架构
+** Vue &amp; React：lib 放在min-js 通过require加载</code></pre></li>
+<li>Angular的标准化 让代码可以90%重用</li>
+<li>TypeScript 微软主推（编程效率）</li>
+<li>模版 代码 css可分<ul>
+<li>React：JSX 混合</li>
+<li>大型项目重要性</li>
+</ul>
+</li>
+<li>API访问<ul>
+<li>直接集成HTML dispution</li>
+<li>开发环境需要share proxy，命令行配置</li>
+<li>React 有一个proxy属性，设置自己API</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/09/Angular%20&%20React%20&%20Vue%20%E5%AF%B9%E6%AF%94/" data-id="ckcms137l000l9l9k0ohpayg6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React-Redux-store" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/08/React-Redux-store/" class="article-date">
+  <time datetime="2020-07-08T15:18:09.076Z" itemprop="datePublished">2020-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/08/React-Redux-store/">React-Redux-store</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="React系列"><a href="#React系列" class="headerlink" title="React系列"></a>React系列</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/08/React-Redux-store/" data-id="ckcms137o000v9l9k7iyhab8n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Angular历史" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/08/Angular%E5%8E%86%E5%8F%B2/" class="article-date">
+  <time datetime="2020-07-08T08:31:17.518Z" itemprop="datePublished">2020-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/08/Angular%E5%8E%86%E5%8F%B2/">Angular历史</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="title-Angular-历史"><a href="#title-Angular-历史" class="headerlink" title="title:Angular 历史"></a>title:Angular 历史</h2><p>From : <a href="https://medium.com/@lifenshades/difference-among-angular-8-7-6-5-4-3-2-breakdown-new-features-and-changes-811fb5f8e6f0" target="_blank" rel="noopener">点我</a><br>#Angular 2(typescript)</p>
+<ol>
+<li>Component-based instead of Controller</li>
+<li>ES6</li>
+<li>Mobile (low-end) device</li>
+</ol>
+<p>#Angular 3</p>
+<ol>
+<li>single repo for everthiing @angular/core @angular/compiler @angular/router</li>
+<li>router realsing (MonoRepo)</li>
+</ol>
+<p>#Angular 4</p>
+<ol>
+<li>underlying concecpt (same or inheritance from 2)</li>
+<li>reduce size of AOT compiler</li>
+<li>Typescript 2.1</li>
+<li>seperate @angular/core to @angular/animation</li>
+<li>block in *ngIF introduced:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*ngIf&#x3D;”yourCondition; else myFalsyTemplate”s</span><br><span class="line">“&lt;ng-template #myFalsyTemplate&gt;Else Html&lt;&#x2F;ng-template&gt;”</span><br></pre></td></tr></table></figure>
+
+<p>#Angular 5</p>
+<ol>
+<li>HttpClient : a new modulr</li>
+<li>exportAs: multiply names suport for both directives and component</li>
+<li>new Router Life-cycle Events:<ul>
+<li>ActivationStart, ActivationEnd,</li>
+<li>ChildActivationStart, ChildActivationEnd,</li>
+<li>GuardsCheckStart, GuardsCheckEnd, </li>
+<li>ResolveStart and ResolveEnd.</li>
+</ul>
+</li>
+</ol>
+<p>#Angular 6</p>
+<ol>
+<li>More tool-chain and less underlying framework</li>
+<li>RxJs 6</li>
+<li>Synchronizes major version : <ul>
+<li>Angular framework</li>
+<li>Angular CLI</li>
+<li>Angular Material + CDK</li>
+<li><code>&lt;ng-template&gt;</code> instead of <code>&lt;template&gt;</code></li>
+<li>Injectable</li>
+<li>From   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; app.module.ts</span><br><span class="line">import &#123;MyService&#125; from &#39;.&#x2F;my-service&#39;;</span><br><span class="line">providers: [...MyService]</span><br></pre></td></tr></table></figure>
+ to  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MyService.ts</span></span><br><span class="line">@Injectable(&#123; <span class="attr">providedIn</span>: <span class="string">'root'</span>&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">MyService</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>#Angular 7</li>
+</ol>
+<p>#Angular 8    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/08/Angular%E5%8E%86%E5%8F%B2/" data-id="ckcms137700039l9k8h921v87" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-虚拟DOM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/08/%E8%99%9A%E6%8B%9FDOM/" class="article-date">
+  <time datetime="2020-07-08T05:42:49.106Z" itemprop="datePublished">2020-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/08/%E8%99%9A%E6%8B%9FDOM/">虚拟DOM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/08/%E8%99%9A%E6%8B%9FDOM/" data-id="ckcms136j00019l9k17gq5dhb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS-DOM-虚拟DOM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/08/JS-DOM-%E8%99%9A%E6%8B%9FDOM/" class="article-date">
+  <time datetime="2020-07-07T18:08:50.170Z" itemprop="datePublished">2020-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/08/JS-DOM-%E8%99%9A%E6%8B%9FDOM/">JS-DOM-虚拟DOM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/08/JS-DOM-%E8%99%9A%E6%8B%9FDOM/" data-id="ckcms136e00009l9kgb56dchn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Vue-杂七杂八" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/08/Vue-%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="article-date">
+  <time datetime="2020-07-07T17:50:46.244Z" itemprop="datePublished">2020-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/08/Vue-%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">Vue-杂七杂八</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#问题：</p>
+<ol>
+<li><p>Keep-alive （场景 视频VLog） <a href="https://juejin.im/post/5d92acae6fb9a04e143daa0c" target="_blank" rel="noopener">  文章</a></p>
+<ol>
+<li>作用：缓存 - 降级荣塞</li>
+<li>How： 以队列方式缓存</li>
+<li>缓存的是什么：VNode (虚拟DOM)</li>
+<li>坑：内存泄漏   解决方法：缓存数量限制<ol start="5">
+<li>使用了什么机制： LRU</li>
+</ol>
+<ul>
+<li>显示隐藏</li>
+<li>设置缓存大小 </li>
+<li>自己写<pre><code>（Keep-alive 缓存的是结果，也就是vnode，如果太大就缓存数据）</code></pre><ul>
+<li>有卡顿<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Vue 基于数据驱动  -&gt; 缓存数据<br>#第一 </p>
+<ol>
+<li><p>Vue runtime + complier</p>
+<ul>
+<li><p>运行时生命周期 编译时</p>
+<ul>
+<li><p>template -&gt;</p>
+</li>
+<li><p>(上线前变异)ast-&gt;</p>
+<ul>
+<li><p>(本地Complier，将<em>.vue打包成js，上线的时候只是JS 上传到服务器)render -&gt;</em></p>
+<ul>
+<li><p>【运行时】<strong>vnode （内存中存在的状态）在内存中diff</strong>-&gt;</p>
+<blockquote>
+<pre><code>DOM PULL 在React，主动发出的动作（react setSate props）后数据发生改变
+ DOM PUSH 在Vue，通过响应数据生成DOM                    </code></pre><p><code>&lt;div&gt;&lt;/div&gt;.   一个组建-&gt; 一个watcher[内存]-&gt; DOM</code><br>组建内部用Diff修改<br>为什么有Vnode/虚拟DOM： （缓存：类似 寄存器/内存/硬盘） 虚拟DOM - 缓冲地带 - 不同端运行</p>
+</blockquote>
+<p>在线编译：浏览器JS运行时候调用template，然后解析<br>RuntimeOnly：如果要在Template里面加入<strong>Component后性能非常差，必须要加入Complier包</strong>，优化成render函数然后删除这个包（资源优化）。                </p>
+<ul>
+<li>（通过patch（）{ doucument.getElementBy(‘’).apendchild()}）<strong>修改正式DOM的动作，通过虚拟DOM树递归【慢】， react中做了fiber，做时间分片</strong> <a href="https://juejin.im/post/5dadc6045188255a270a0f85" target="_blank" rel="noopener">React Fiber(时间分片)</a><ul>
+<li>-&gt; 转换成DOM</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>script(浏览器从服务器拉下js开始运行) –&gt; </p>
+</li>
+<li><p>new Vue()  -&gt; (把数据处理成)响应data <strong>（生成vnode）</strong></p>
+</li>
+<li><p>style</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Vue 浏览器端一贞解析机制</p>
+</li>
+<li><p>Vue 首屏优化</p>
+<ul>
+<li>优化<ul>
+<li>如何优化加载速度，白屏如何引起的<ul>
+<li>运行环境：</li>
+<li>浏览器如何渲染：js/css/html </li>
+<li>来源 - <a href="https://aerotwist.com/blog/the-anatomy-of-a-frame/" target="_blank" rel="noopener">浏览器一帧渲染</a>：       </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/08/Vue-%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" data-id="ckcms137p000y9l9k7kz2gwqy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">下一页 &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%8D%9A%E5%AE%A2/">博客</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graph/" rel="tag">Graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slip-Window/" rel="tag">Slip_Window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TwoPointer/" rel="tag">TwoPointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Array/" style="font-size: 13.33px;">Array</a> <a href="/tags/DFS/" style="font-size: 16.67px;">DFS</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/Slip-Window/" style="font-size: 10px;">Slip_Window</a> <a href="/tags/TwoPointer/" style="font-size: 10px;">TwoPointer</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/18/%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%96%E7%95%A5/">中间件策略</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7C%20Array%20%7CTwo%20Pointers%7C%20Stack%7C42.%20Trapping%20Rain%20Water/">LeetCode| Array |Two Pointers| Stack|42. Trapping Rain Water</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktracking%7C17.%20Letter%20Combinations%20of%20a%20Phone%20Number/">LeetCode|String|Backtracking|17. Letter Combinations of a Phone Number</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktrack%7C22.%20Generate%20Parentheses/">LeetCode|String|Backtrack|22. Generate Parentheses</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktrack%7C2.%20Add%20Two%20Numbers/">LeetCode|String|Backtrack|2. Add Two Numbers</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Weihong Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

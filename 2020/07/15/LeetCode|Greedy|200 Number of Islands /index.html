@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>LeetCode|Greedy|200 Number of Islands | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ProblemGiven a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode|Greedy|200 Number of Islands">
+<meta property="og:url" content="http://yoursite.com/2020/07/15/LeetCode|Greedy|200%20Number%20of%20Islands%20/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ProblemGiven a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-15T04:12:57.000Z">
+<meta property="article:modified_time" content="2020-07-17T07:59:51.113Z">
+<meta property="article:author" content="Weihong Xu">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-LeetCode|Greedy|200 Number of Islands " class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/15/LeetCode%7CGreedy%7C200%20Number%20of%20Islands%20/" class="article-date">
+  <time datetime="2020-07-15T04:12:57.000Z" itemprop="datePublished">2020-07-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LeetCode|Greedy|200 Number of Islands
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>Given a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</p>
+<p>Example 1:</p>
+<blockquote>
+<p>Input: grid = [<br>  [“1”,”1”,”1”,”1”,”0”],<br>  [“1”,”1”,”0”,”1”,”0”],<br>  [“1”,”1”,”0”,”0”,”0”],<br>  [“0”,”0”,”0”,”0”,”0”]<br>]<br>Output: 1</p>
+</blockquote>
+<p>Example 2:</p>
+<p><code>Input: grid = [
+  [&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;],
+  [&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;],
+  [&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],
+  [&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;]
+]
+Output: 3</code></p>
+<h1 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h1><p><a href="https://leetcode.com/problems/number-of-islands/discuss/429842/JavaScript-DFS-Commented-Thought-Process-Beats-100-Time-and-Space" target="_blank" rel="noopener">here</a></p>
+<p>Below is what I typed out on a google doc in preparation for a google phone interview.<br>I thought it may be helpful for others to see and give feedback on my thought process, and if it makes sense/is followable. After all, that’s what I want my interviewer to do, understand me.<br>Goal: Count number of islands<br>Rules:</p>
+<p>An island is surrounded by water(0’s)<br>We count things apart of our island if it is horizontal or vertical connected<br>Plan:<br>Start at the top left of the 2d array, and visit the first row, and all its columns, trying to find the start of the first island<br>Once we find a 1, we can increment the number of islands, but we want to know where the island ends. So let’s look and follow any of the horizontal or vertical spots near the current position we are on.<br>First, let’s mark the current start/visited parts of the islands as visited by turning them into a 0,<br>Second, explore all the adjacent possibilities,<br>If one of them is a 1, recursively turn it into a 0 and check its children<br>Once we are done, we should have gotten rid of the island that we discovered and can move on to the next island, if it exists in the 2d array</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;character[][]&#125;</span> <span class="variable">grid</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> numIslands = <span class="function"><span class="keyword">function</span>(<span class="params">grid</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!grid)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> m =<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> n = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; grid.length; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; grid[i].length; j++)&#123;</span><br><span class="line">            res += grid[i][j] -<span class="string">"0"</span>;</span><br><span class="line">            dfs(i, j, grid);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dfs</span>(<span class="params">x, y, array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;<span class="number">0</span> || y&lt; <span class="number">0</span>|| x&gt;= array.length || y&gt;= array[<span class="number">0</span>].length || array[x][y] ===<span class="string">"0"</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">    array[x][y] = <span class="string">"0"</span>;</span><br><span class="line">    dfs(x<span class="number">-1</span>, y, array);</span><br><span class="line">    dfs(x+<span class="number">1</span>, y, array);</span><br><span class="line">    dfs(x, y<span class="number">-1</span>, array);</span><br><span class="line">    dfs(x, y+<span class="number">1</span>, array);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/15/LeetCode|Greedy|200%20Number%20of%20Islands%20/" data-id="ckcmutba00000m19k7436bb36" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/17/LeetCode%7CString%7C937._Reorder%20Data%20in%20Log%20Files/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          LeetCode|String|937. Reorder Data in Log Files
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/14/LeetCode-Slip_Window-3_Longest_Substring_Without_Repeating_Characters/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">LeetCode| Slip_Window| 3_Longest_Substring_Without_Repeating_Characters</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%8D%9A%E5%AE%A2/">博客</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graph/" rel="tag">Graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slip-Window/" rel="tag">Slip_Window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TwoPointer/" rel="tag">TwoPointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Array/" style="font-size: 13.33px;">Array</a> <a href="/tags/DFS/" style="font-size: 16.67px;">DFS</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/Slip-Window/" style="font-size: 10px;">Slip_Window</a> <a href="/tags/TwoPointer/" style="font-size: 10px;">TwoPointer</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/18/%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%96%E7%95%A5/">中间件策略</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7C%20Array%20%7CTwo%20Pointers%7C%20Stack%7C42.%20Trapping%20Rain%20Water/">LeetCode| Array |Two Pointers| Stack|42. Trapping Rain Water</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktracking%7C17.%20Letter%20Combinations%20of%20a%20Phone%20Number/">LeetCode|String|Backtracking|17. Letter Combinations of a Phone Number</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktrack%7C22.%20Generate%20Parentheses/">LeetCode|String|Backtrack|22. Generate Parentheses</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktrack%7C2.%20Add%20Two%20Numbers/">LeetCode|String|Backtrack|2. Add Two Numbers</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Weihong Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

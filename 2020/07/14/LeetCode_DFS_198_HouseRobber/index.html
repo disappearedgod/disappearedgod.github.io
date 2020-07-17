@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>LeetCode|DFS|198 HouseRobber | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Problem You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjace">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode|DFS|198 HouseRobber">
+<meta property="og:url" content="http://yoursite.com/2020/07/14/LeetCode_DFS_198_HouseRobber/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Problem You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjace">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-14T04:12:57.000Z">
+<meta property="article:modified_time" content="2020-07-17T07:59:09.625Z">
+<meta property="article:author" content="Weihong Xu">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="DFS">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-LeetCode_DFS_198_HouseRobber" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/14/LeetCode_DFS_198_HouseRobber/" class="article-date">
+  <time datetime="2020-07-14T04:12:57.000Z" itemprop="datePublished">2020-07-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LeetCode|DFS|198 HouseRobber
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem "></a><a href="https://leetcode.com/problems/house-robber/" target="_blank" rel="noopener">Problem </a></h1><p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.</p>
+<p>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.</p>
+<p>Example 1:</p>
+<blockquote>
+<p>Input: nums = [1,2,3,1]<br>Output: 4<br>Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).<br>             Total amount you can rob = 1 + 3 = 4.</p>
+</blockquote>
+<p>Example 2:</p>
+<blockquote>
+<p>Input: nums = [2,7,9,3,1]<br>Output: 12<br>Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).<br>             Total amount you can rob = 2 + 9 + 1 = 12.</p>
+</blockquote>
+<h1 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h1><h3 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h3><p>动态规划的一个很重要的过程就是找到「状态」和「状态转移方程」，在这个问题里，设 i 是当前屋子的下标，状态就是 以 i 为起点偷窃的最大价值</p>
+<p>在某一个房子面前，盗贼只有两种选择：偷或者不偷。</p>
+<p>偷的话，价值就是「当前房子的价值」+「下两个房子开始盗窃的最大价值」<br>不偷的话，价值就是「下一个房子开始盗窃的最大价值」<br>在这两个值中，选择最大值记录在 dp[i]中，就得到了以 i 为起点所能偷窃的最大价值。。</p>
+<p>动态规划的起手式，找基础状态，在这题中，以终点为起点的最大价值一定是最好找的，因为终点不可能再继续往后偷窃了，所以设 n 为房子的总数量， dp[n - 1] 就是 nums[n - 1]，小偷只能选择偷窃这个房子，而不能跳过去选择下一个不存在的房子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> rob = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums.length === <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> dp = [];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = nums.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">let</span> robNow = nums[i] + (dp [i + <span class="number">2</span>] || <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">let</span> robNext = dp[i + <span class="number">1</span>] || <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        dp[i] = <span class="built_in">Math</span>.max(robNow, robNext);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> dp[<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="resource"><a href="#resource" class="headerlink" title="resource"></a>resource</h1><p><a href="https://mp.weixin.qq.com/s/7mJSpnHE319swy0LStpavQ" target="_blank" rel="noopener">here</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/14/LeetCode_DFS_198_HouseRobber/" data-id="ckcms137g000b9l9kh3s308i1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/14/LeetCode_Array_350_Intersection_of_Two_Arrays_II/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          LeetCode|Array|350 Intersection_of_Two_Arrays_II
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/14/LeetCode_DFS_515_FindLargestValueinEachTreeRow/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">LeetCode|DFS|515 FindLargestValueinEachTreeRow</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%8D%9A%E5%AE%A2/">博客</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graph/" rel="tag">Graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slip-Window/" rel="tag">Slip_Window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TwoPointer/" rel="tag">TwoPointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Array/" style="font-size: 13.33px;">Array</a> <a href="/tags/DFS/" style="font-size: 16.67px;">DFS</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/Slip-Window/" style="font-size: 10px;">Slip_Window</a> <a href="/tags/TwoPointer/" style="font-size: 10px;">TwoPointer</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/18/%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%96%E7%95%A5/">中间件策略</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7C%20Array%20%7CTwo%20Pointers%7C%20Stack%7C42.%20Trapping%20Rain%20Water/">LeetCode| Array |Two Pointers| Stack|42. Trapping Rain Water</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktracking%7C17.%20Letter%20Combinations%20of%20a%20Phone%20Number/">LeetCode|String|Backtracking|17. Letter Combinations of a Phone Number</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktrack%7C22.%20Generate%20Parentheses/">LeetCode|String|Backtrack|22. Generate Parentheses</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktrack%7C2.%20Add%20Two%20Numbers/">LeetCode|String|Backtrack|2. Add Two Numbers</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Weihong Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

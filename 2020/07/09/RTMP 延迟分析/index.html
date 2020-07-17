@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>RTMP 延迟分析 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="延迟分析#RTMPRTMP是Real Time Messaging Protocol（实时消息传输协议）的首字母缩写。该协议基于TCP，是一个协议族，包括RTMP基本协议及RTMPT&#x2F;RTMPS&#x2F;RTMPE等多种变种。 RTMP是一种设计用来进行实时数据通信的网络协议，主要用来在Flash&#x2F;AIR平台和支持RTMP协议的流媒体&#x2F;交互服务器之间进行音视频和数据通信。支持该协议的软件包括Adobe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RTMP 延迟分析">
+<meta property="og:url" content="http://yoursite.com/2020/07/09/RTMP%20%E5%BB%B6%E8%BF%9F%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="延迟分析#RTMPRTMP是Real Time Messaging Protocol（实时消息传输协议）的首字母缩写。该协议基于TCP，是一个协议族，包括RTMP基本协议及RTMPT&#x2F;RTMPS&#x2F;RTMPE等多种变种。 RTMP是一种设计用来进行实时数据通信的网络协议，主要用来在Flash&#x2F;AIR平台和支持RTMP协议的流媒体&#x2F;交互服务器之间进行音视频和数据通信。支持该协议的软件包括Adobe">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-08T19:10:17.130Z">
+<meta property="article:modified_time" content="2020-07-10T12:14:12.141Z">
+<meta property="article:author" content="Weihong Xu">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-RTMP 延迟分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/09/RTMP%20%E5%BB%B6%E8%BF%9F%E5%88%86%E6%9E%90/" class="article-date">
+  <time datetime="2020-07-08T19:10:17.130Z" itemprop="datePublished">2020-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      RTMP 延迟分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="延迟分析"><a href="#延迟分析" class="headerlink" title="延迟分析"></a>延迟分析</h2><p>#RTMP<br>RTMP是Real Time Messaging Protocol（实时消息传输协议）的首字母缩写。该协议基于TCP，是一个协议族，包括RTMP基本协议及RTMPT/RTMPS/RTMPE等多种变种。</p>
+<p>RTMP是一种设计用来进行实时数据通信的网络协议，主要用来在Flash/AIR平台和支持RTMP协议的流媒体/交互服务器之间进行音视频和数据通信。支持该协议的软件包括Adobe Media Server/Ultrant Media Server/red5等。</p>
+<ul>
+<li>RTMP工作在TCP之上，默认使用端口1935；</li>
+<li>RTMPE在RTMP的基础上增加了加密功能；</li>
+<li>RTMPT封装在HTTP请求之上，可穿透防火墙；</li>
+<li>RTMPS类似RTMPT，增加了TLS/SSL的安全功能。</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/5ce11c20a9df" target="_blank" rel="noopener">来自</a></p>
+<h1 id="RTMP-延迟分析"><a href="#RTMP-延迟分析" class="headerlink" title="RTMP 延迟分析"></a>RTMP 延迟分析</h1><p>RTMP和HLS基本上可以覆盖所有客户端观看</p>
+<ul>
+<li>HLS主要是延时比较大</li>
+<li>RTMP主要优势在于延时低</li>
+</ul>
+<h1 id="应用场景（Verify）"><a href="#应用场景（Verify）" class="headerlink" title="应用场景（Verify）"></a>应用场景（Verify）</h1><p>低延时应用场景包括：</p>
+<ul>
+<li><p>互动式直播：譬如2013年大行其道的美女主播，游戏直播等等。</p>
+<ul>
+<li>各种主播，流媒体分发给用户观看。用户可以文字聊天和主播互动。</li>
+</ul>
+</li>
+<li><p>视频会议：我们要是有同事出差在外地，就用视频会议开内部会议。</p>
+<ul>
+<li>其实会议1秒延时无所谓，因为人家讲完话后，其他人需要思考。</li>
+<li>思考的延时也会在1秒左右。当然如果用视频会议吵架就不行。</li>
+</ul>
+</li>
+<li><p>其他：监控，直播也有些地方需要对延迟有要求。</p>
+<ul>
+<li>互联网上RTMP协议的延迟基本上能够满足要求。<h1 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h1></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><a href="https://draveness.me/whys-the-design-live-streaming-latency/" target="_blank" rel="noopener">为什么流媒体直播的延迟很高</a></li>
+<li><a href="https://blog.csdn.net/lcalqf/article/details/52993630" target="_blank" rel="noopener">RTMP 延迟分析</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/73984438" target="_blank" rel="noopener">视频和视频帧：ffmpeg的RTMP推流</a></li>
+<li><a href="https://www.jianshu.com/p/c04d810b7562" target="_blank" rel="noopener">视频传输协议详解（RTMP、RTSP、HLS）</a></li>
+<li><a href="https://www.jianshu.com/p/5ce11c20a9df" target="_blank" rel="noopener">RTMP协议解析（一） —— 基本了解</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27368329" target="_blank" rel="noopener">流媒体系统的RTMP协议</a></li>
+<li><a href="https://blog.csdn.net/dong_beijing/article/details/60776248" target="_blank" rel="noopener">通过信号量和共享内存实现h264码流在不同进程间传输</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/09/RTMP%20%E5%BB%B6%E8%BF%9F%E5%88%86%E6%9E%90/" data-id="ckcms137n000s9l9kcoii3zt1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/09/%E7%BC%93%E5%AD%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          缓存
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/09/%E6%B5%8B%E8%AF%95-google-%E6%B5%8B%E8%AF%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">测试-google-测试</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%8D%9A%E5%AE%A2/">博客</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graph/" rel="tag">Graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slip-Window/" rel="tag">Slip_Window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TwoPointer/" rel="tag">TwoPointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Array/" style="font-size: 13.33px;">Array</a> <a href="/tags/DFS/" style="font-size: 16.67px;">DFS</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/Slip-Window/" style="font-size: 10px;">Slip_Window</a> <a href="/tags/TwoPointer/" style="font-size: 10px;">TwoPointer</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/18/%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%96%E7%95%A5/">中间件策略</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7C%20Array%20%7CTwo%20Pointers%7C%20Stack%7C42.%20Trapping%20Rain%20Water/">LeetCode| Array |Two Pointers| Stack|42. Trapping Rain Water</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktracking%7C17.%20Letter%20Combinations%20of%20a%20Phone%20Number/">LeetCode|String|Backtracking|17. Letter Combinations of a Phone Number</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktrack%7C22.%20Generate%20Parentheses/">LeetCode|String|Backtrack|22. Generate Parentheses</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/LeetCode%7CString%7CBacktrack%7C2.%20Add%20Two%20Numbers/">LeetCode|String|Backtrack|2. Add Two Numbers</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Weihong Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
