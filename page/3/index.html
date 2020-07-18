@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="大前端成长之路">
@@ -104,7 +104,6 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -144,35 +143,11 @@
     <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
 
   </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
   </ul>
 </nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container"></div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="algolia-results">
-  <div id="algolia-stats"></div>
-  <div id="algolia-hits"></div>
-  <div id="algolia-pagination" class="algolia-pagination"></div>
-</div>
-
-      
-    </div>
-  </div>
 
 </div>
     </header>
@@ -548,6 +523,133 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/Angular%E5%8E%86%E5%8F%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weihong Xu">
+      <meta itemprop="description" content="大前端成长之路">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/13/Angular%E5%8E%86%E5%8F%B2/" class="post-title-link" itemprop="url">前端| Angular 历史</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-13 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-13T12:12:57+08:00">2020-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-18 18:31:40" itemprop="dateModified" datetime="2020-07-18T18:31:40+08:00">2020-07-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/Angular/" itemprop="url" rel="index"><span itemprop="name">Angular</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>From : <a href="https://medium.com/@lifenshades/difference-among-angular-8-7-6-5-4-3-2-breakdown-new-features-and-changes-811fb5f8e6f0" target="_blank" rel="noopener">点我</a><br>#Angular 2(typescript)</p>
+<ol>
+<li>Component-based instead of Controller</li>
+<li>ES6</li>
+<li>Mobile (low-end) device</li>
+</ol>
+<p>#Angular 3</p>
+<ol>
+<li>single repo for everthiing @angular/core @angular/compiler @angular/router</li>
+<li>router realsing (MonoRepo)</li>
+</ol>
+<p>#Angular 4</p>
+<ol>
+<li>underlying concecpt (same or inheritance from 2)</li>
+<li>reduce size of AOT compiler</li>
+<li>Typescript 2.1</li>
+<li>seperate @angular/core to @angular/animation</li>
+<li>block in *ngIF introduced:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*ngIf&#x3D;”yourCondition; else myFalsyTemplate”s</span><br><span class="line">“&lt;ng-template #myFalsyTemplate&gt;Else Html&lt;&#x2F;ng-template&gt;”</span><br></pre></td></tr></table></figure>
+
+<p>#Angular 5</p>
+<ol>
+<li>HttpClient : a new modulr</li>
+<li>exportAs: multiply names suport for both directives and component</li>
+<li>new Router Life-cycle Events:<ul>
+<li>ActivationStart, ActivationEnd,</li>
+<li>ChildActivationStart, ChildActivationEnd,</li>
+<li>GuardsCheckStart, GuardsCheckEnd, </li>
+<li>ResolveStart and ResolveEnd.</li>
+</ul>
+</li>
+</ol>
+<p>#Angular 6</p>
+<ol>
+<li>More tool-chain and less underlying framework</li>
+<li>RxJs 6</li>
+<li>Synchronizes major version : <ul>
+<li>Angular framework</li>
+<li>Angular CLI</li>
+<li>Angular Material + CDK</li>
+<li><code>&lt;ng-template&gt;</code> instead of <code>&lt;template&gt;</code></li>
+<li>Injectable</li>
+<li>From   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; app.module.ts</span><br><span class="line">import &#123;MyService&#125; from &#39;.&#x2F;my-service&#39;;</span><br><span class="line">providers: [...MyService]</span><br></pre></td></tr></table></figure>
+ to  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MyService.ts</span></span><br><span class="line">@Injectable(&#123; <span class="attr">providedIn</span>: <span class="string">'root'</span>&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">MyService</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>#Angular 7</li>
+</ol>
+<p>#Angular 8    </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/Angular%20&%20React%20&%20Vue%20%E5%AF%B9%E6%AF%94/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -676,7 +778,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/Angular%E5%8E%86%E5%8F%B2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/JS-DOM-%E8%99%9A%E6%8B%9FDOM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -690,7 +792,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/13/Angular%E5%8E%86%E5%8F%B2/" class="post-title-link" itemprop="url">前端| Angular 历史</a>
+            <a href="/2020/07/13/JS-DOM-%E8%99%9A%E6%8B%9FDOM/" class="post-title-link" itemprop="url">前端｜DOM ｜虚拟DOM</a>
         </h2>
 
         <div class="post-meta">
@@ -707,7 +809,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-18 18:31:40" itemprop="dateModified" datetime="2020-07-18T18:31:40+08:00">2020-07-18</time>
+                <time title="修改时间：2020-07-18 19:12:02" itemprop="dateModified" datetime="2020-07-18T19:12:02+08:00">2020-07-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -715,11 +817,15 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/Angular/" itemprop="url" rel="index"><span itemprop="name">Angular</span></a>
+                  <a href="/categories/DOM/" itemprop="url" rel="index"><span itemprop="name">DOM</span></a>
                 </span>
             </span>
 
@@ -734,57 +840,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>From : <a href="https://medium.com/@lifenshades/difference-among-angular-8-7-6-5-4-3-2-breakdown-new-features-and-changes-811fb5f8e6f0" target="_blank" rel="noopener">点我</a><br>#Angular 2(typescript)</p>
-<ol>
-<li>Component-based instead of Controller</li>
-<li>ES6</li>
-<li>Mobile (low-end) device</li>
-</ol>
-<p>#Angular 3</p>
-<ol>
-<li>single repo for everthiing @angular/core @angular/compiler @angular/router</li>
-<li>router realsing (MonoRepo)</li>
-</ol>
-<p>#Angular 4</p>
-<ol>
-<li>underlying concecpt (same or inheritance from 2)</li>
-<li>reduce size of AOT compiler</li>
-<li>Typescript 2.1</li>
-<li>seperate @angular/core to @angular/animation</li>
-<li>block in *ngIF introduced:</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*ngIf&#x3D;”yourCondition; else myFalsyTemplate”s</span><br><span class="line">“&lt;ng-template #myFalsyTemplate&gt;Else Html&lt;&#x2F;ng-template&gt;”</span><br></pre></td></tr></table></figure>
-
-<p>#Angular 5</p>
-<ol>
-<li>HttpClient : a new modulr</li>
-<li>exportAs: multiply names suport for both directives and component</li>
-<li>new Router Life-cycle Events:<ul>
-<li>ActivationStart, ActivationEnd,</li>
-<li>ChildActivationStart, ChildActivationEnd,</li>
-<li>GuardsCheckStart, GuardsCheckEnd, </li>
-<li>ResolveStart and ResolveEnd.</li>
-</ul>
-</li>
-</ol>
-<p>#Angular 6</p>
-<ol>
-<li>More tool-chain and less underlying framework</li>
-<li>RxJs 6</li>
-<li>Synchronizes major version : <ul>
-<li>Angular framework</li>
-<li>Angular CLI</li>
-<li>Angular Material + CDK</li>
-<li><code>&lt;ng-template&gt;</code> instead of <code>&lt;template&gt;</code></li>
-<li>Injectable</li>
-<li>From   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; app.module.ts</span><br><span class="line">import &#123;MyService&#125; from &#39;.&#x2F;my-service&#39;;</span><br><span class="line">providers: [...MyService]</span><br></pre></td></tr></table></figure>
- to  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MyService.ts</span></span><br><span class="line">@Injectable(&#123; <span class="attr">providedIn</span>: <span class="string">'root'</span>&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">MyService</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>#Angular 7</li>
-</ol>
-<p>#Angular 8    </p>
-
+          <h1 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h1>
       
     </div>
 
@@ -989,7 +1045,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/Vue-%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/RTMP%20%E5%BB%B6%E8%BF%9F%E5%88%86%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1003,7 +1059,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/13/Vue-%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="post-title-link" itemprop="url">前端｜Vue 杂七杂八</a>
+            <a href="/2020/07/13/RTMP%20%E5%BB%B6%E8%BF%9F%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">前端｜视频 ｜延迟分析</a>
         </h2>
 
         <div class="post-meta">
@@ -1020,7 +1076,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-18 18:38:04" itemprop="dateModified" datetime="2020-07-18T18:38:04+08:00">2020-07-18</time>
+                <time title="修改时间：2020-07-18 18:46:43" itemprop="dateModified" datetime="2020-07-18T18:46:43+08:00">2020-07-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1028,15 +1084,19 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                  <a href="/categories/%E5%8D%8F%E8%AE%AE/" itemprop="url" rel="index"><span itemprop="name">协议</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                  <a href="/categories/%E5%8D%8F%E8%AE%AE/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/%E5%89%8D%E7%AB%AF/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+                  <a href="/categories/%E5%8D%8F%E8%AE%AE/%E5%89%8D%E7%AB%AF/%E8%A7%86%E9%A2%91/" itemprop="url" rel="index"><span itemprop="name">视频</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%8F%E8%AE%AE/%E5%89%8D%E7%AB%AF/%E8%A7%86%E9%A2%91/%E5%BB%B6%E8%BF%9F/" itemprop="url" rel="index"><span itemprop="name">延迟</span></a>
                 </span>
             </span>
 
@@ -1051,183 +1111,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h1><ol>
-<li><p>Keep-alive （场景 视频VLog） <a href="https://juejin.im/post/5d92acae6fb9a04e143daa0c" target="_blank" rel="noopener">  文章</a></p>
+          <p>#RTMP<br>RTMP是Real Time Messaging Protocol（实时消息传输协议）的首字母缩写。该协议基于TCP，是一个协议族，包括RTMP基本协议及RTMPT/RTMPS/RTMPE等多种变种。</p>
+<p>RTMP是一种设计用来进行实时数据通信的网络协议，主要用来在Flash/AIR平台和支持RTMP协议的流媒体/交互服务器之间进行音视频和数据通信。支持该协议的软件包括Adobe Media Server/Ultrant Media Server/red5等。</p>
+<ul>
+<li>RTMP工作在TCP之上，默认使用端口1935；</li>
+<li>RTMPE在RTMP的基础上增加了加密功能；</li>
+<li>RTMPT封装在HTTP请求之上，可穿透防火墙；</li>
+<li>RTMPS类似RTMPT，增加了TLS/SSL的安全功能。</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/5ce11c20a9df" target="_blank" rel="noopener">来自</a></p>
+<h1 id="RTMP-延迟分析"><a href="#RTMP-延迟分析" class="headerlink" title="RTMP 延迟分析"></a>RTMP 延迟分析</h1><p>RTMP和HLS基本上可以覆盖所有客户端观看</p>
+<ul>
+<li>HLS主要是延时比较大</li>
+<li>RTMP主要优势在于延时低</li>
+</ul>
+<h1 id="应用场景（Verify）"><a href="#应用场景（Verify）" class="headerlink" title="应用场景（Verify）"></a>应用场景（Verify）</h1><p>低延时应用场景包括：</p>
+<ul>
+<li><p>互动式直播：譬如2013年大行其道的美女主播，游戏直播等等。</p>
+<ul>
+<li>各种主播，流媒体分发给用户观看。用户可以文字聊天和主播互动。</li>
+</ul>
+</li>
+<li><p>视频会议：我们要是有同事出差在外地，就用视频会议开内部会议。</p>
+<ul>
+<li>其实会议1秒延时无所谓，因为人家讲完话后，其他人需要思考。</li>
+<li>思考的延时也会在1秒左右。当然如果用视频会议吵架就不行。</li>
+</ul>
+</li>
+<li><p>其他：监控，直播也有些地方需要对延迟有要求。</p>
+<ul>
+<li>互联网上RTMP协议的延迟基本上能够满足要求。<h1 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h1></li>
+</ul>
+</li>
+</ul>
 <ol>
-<li>作用：缓存 - 降级荣塞</li>
-<li>How： 以队列方式缓存</li>
-<li>缓存的是什么：VNode (虚拟DOM)</li>
-<li>坑：内存泄漏   解决方法：缓存数量限制<ol start="5">
-<li>使用了什么机制： LRU</li>
+<li><a href="https://draveness.me/whys-the-design-live-streaming-latency/" target="_blank" rel="noopener">为什么流媒体直播的延迟很高</a></li>
+<li><a href="https://blog.csdn.net/lcalqf/article/details/52993630" target="_blank" rel="noopener">RTMP 延迟分析</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/73984438" target="_blank" rel="noopener">视频和视频帧：ffmpeg的RTMP推流</a></li>
+<li><a href="https://www.jianshu.com/p/c04d810b7562" target="_blank" rel="noopener">视频传输协议详解（RTMP、RTSP、HLS）</a></li>
+<li><a href="https://www.jianshu.com/p/5ce11c20a9df" target="_blank" rel="noopener">RTMP协议解析（一） —— 基本了解</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27368329" target="_blank" rel="noopener">流媒体系统的RTMP协议</a></li>
+<li><a href="https://blog.csdn.net/dong_beijing/article/details/60776248" target="_blank" rel="noopener">通过信号量和共享内存实现h264码流在不同进程间传输</a></li>
 </ol>
-<ul>
-<li>显示隐藏</li>
-<li>设置缓存大小 </li>
-<li>自己写<pre><code>（Keep-alive 缓存的是结果，也就是vnode，如果太大就缓存数据）</code></pre><ul>
-<li>有卡顿<ul>
-<li></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<p>Vue 基于数据驱动  -&gt; 缓存数据<br>#第一 </p>
-<ol>
-<li><p>Vue runtime + complier</p>
-<ul>
-<li><p>运行时生命周期 编译时</p>
-<ul>
-<li><p>template -&gt;</p>
-</li>
-<li><p>(上线前变异)ast-&gt;</p>
-<ul>
-<li><p>(本地Complier，将<em>.vue打包成js，上线的时候只是JS 上传到服务器)render -&gt;</em></p>
-<ul>
-<li><p>【运行时】<strong>vnode （内存中存在的状态）在内存中diff</strong>-&gt;</p>
-<blockquote>
-<pre><code>DOM PULL 在React，主动发出的动作（react setSate props）后数据发生改变
- DOM PUSH 在Vue，通过响应数据生成DOM                    </code></pre><p><code>&lt;div&gt;&lt;/div&gt;.   一个组建-&gt; 一个watcher[内存]-&gt; DOM</code><br>组建内部用Diff修改<br>为什么有Vnode/虚拟DOM： （缓存：类似 寄存器/内存/硬盘） 虚拟DOM - 缓冲地带 - 不同端运行</p>
-</blockquote>
-<p>在线编译：浏览器JS运行时候调用template，然后解析<br>RuntimeOnly：如果要在Template里面加入<strong>Component后性能非常差，必须要加入Complier包</strong>，优化成render函数然后删除这个包（资源优化）。                </p>
-<ul>
-<li>（通过patch（）{ doucument.getElementBy(‘’).apendchild()}）<strong>修改正式DOM的动作，通过虚拟DOM树递归【慢】， react中做了fiber，做时间分片</strong> <a href="https://juejin.im/post/5dadc6045188255a270a0f85" target="_blank" rel="noopener">React Fiber(时间分片)</a><ul>
-<li>-&gt; 转换成DOM</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>script(浏览器从服务器拉下js开始运行) –&gt; </p>
-</li>
-<li><p>new Vue()  -&gt; (把数据处理成)响应data <strong>（生成vnode）</strong></p>
-</li>
-<li><p>style</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Vue 浏览器端一贞解析机制</p>
-</li>
-<li><p>Vue 首屏优化</p>
-<ul>
-<li>优化<ul>
-<li>如何优化加载速度，白屏如何引起的<ul>
-<li>运行环境：</li>
-<li>浏览器如何渲染：js/css/html </li>
-<li>来源 - <a href="https://aerotwist.com/blog/the-anatomy-of-a-frame/" target="_blank" rel="noopener">浏览器一帧渲染</a>：       </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/java%E9%9D%A2%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weihong Xu">
-      <meta itemprop="description" content="大前端成长之路">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/13/java%E9%9D%A2%E8%AF%95/" class="post-title-link" itemprop="url">后端｜java面试</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-13 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-13T12:12:57+08:00">2020-07-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-18 18:33:38" itemprop="dateModified" datetime="2020-07-18T18:33:38+08:00">2020-07-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%90%8E%E7%AB%AF/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li>Java 基础</li>
-<li>容器</li>
-<li>多线程</li>
-<li>反射</li>
-<li>对象拷贝</li>
-<li>java Web 模块</li>
-<li>异常</li>
-<li>网络</li>
-<li>设计模式</li>
-<li>Spring/Spring MVC</li>
-<li>Spring Boot/Spring Cloud</li>
-<li>Hibernate</li>
-<li>Mybatis</li>
-<li>RabbitMQ</li>
-<li>Kafka</li>
-<li>Zookeeper</li>
-<li>MySql</li>
-<li>Redis</li>
-<li>JVM </li>
-</ul>
 
       
     </div>
@@ -1330,6 +1255,10 @@
       </div>
   </nav>
 </div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
 
 
 
@@ -1394,13 +1323,6 @@
 
   
 
-
-
-
-  
-<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
-<script src="/js/algolia-search.js"></script>
 
 
 
