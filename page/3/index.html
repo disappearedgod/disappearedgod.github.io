@@ -170,7 +170,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/LeetCode|Greedy|455_Assign%20Cookies/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/LeetCode|DFS|257_Binary_Tree_Paths/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -184,7 +184,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/14/LeetCode%7CGreedy%7C455_Assign%20Cookies/" class="post-title-link" itemprop="url">LeetCode|Greedy|455 Assign Cookies</a>
+            <a href="/2020/07/14/LeetCode%7CDFS%7C257_Binary_Tree_Paths/" class="post-title-link" itemprop="url">LeetCode|DFS|257 Binary_Tree_Paths</a>
         </h2>
 
         <div class="post-meta">
@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-18 04:40:25" itemprop="dateModified" datetime="2020-07-18T04:40:25+08:00">2020-07-18</time>
+                <time title="修改时间：2020-07-19 03:36:10" itemprop="dateModified" datetime="2020-07-19T03:36:10+08:00">2020-07-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -210,6 +210,10 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DFS/" itemprop="url" rel="index"><span itemprop="name">DFS</span></a>
                 </span>
             </span>
 
@@ -224,212 +228,108 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor gi, which is the minimum size of a cookie that the child will be content with; and each cookie j has a size sj. If sj &gt;= gi, we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.</p>
-<p>Note:<br>You may assume the greed factor is always positive.<br>You cannot assign more than one cookie to one child.</p>
-<p>Example 1:</p>
-<blockquote>
-<p>Input: [1,2,3], [1,1]</p>
-<p>Output: 1</p>
-<p>Explanation: You have 3 children and 2 cookies. The greed factors of 3 children are 1, 2, 3.<br>And even though you have 2 cookies, since their size is both 1, you could only make the child whose greed factor is 1 content.<br>You need to output 1.</p>
-</blockquote>
-<p>Example 2:</p>
-<blockquote>
-<p>Input: [1,2], [1,2,3]</p>
-<p>Output: 2</p>
-<p>Explanation: You have 2 children and 3 cookies. The greed factors of 2 children are 1, 2.<br>You have 3 cookies and their sizes are big enough to gratify all of the children,<br>You need to output 2.</p>
-</blockquote>
-<h1 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h1><h3 id="itr"><a href="#itr" class="headerlink" title="itr"></a>itr</h3><p>饼干和孩子的需求都排序好，然后从最小的饼干分配给需求最小的孩子开始，不断的尝试新的饼干和新的孩子，这样能保证每个分给孩子的饼干都恰到好处的不浪费，又满足需求。</p>
-<p>利用双指针不断的更新 i 孩子的需求下标和 j饼干的值，直到两者有其一达到了终点位置：</p>
-<p>如果当前的饼干不满足孩子的胃口，那么把 j++ 寻找下一个饼干，不用担心这个饼干被浪费，因为这个饼干更不可能满足下一个孩子（胃口更大）。<br>如果满足，那么 i++; j++; count++ 记录当前的成功数量，继续寻找下一个孩子和下一个饼干。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">g</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> findContentChildren = <span class="function"><span class="keyword">function</span>(<span class="params">g, s</span>) </span>&#123;</span><br><span class="line">    g.sort(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a - b)</span><br><span class="line">    s.sort(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a - b)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; g.length &amp;&amp; j &lt; s.length)&#123;</span><br><span class="line">        <span class="keyword">let</span> need = g[i];</span><br><span class="line">        <span class="keyword">let</span> cookie = s[j];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(cookie &gt;= need)&#123;</span><br><span class="line">            count ++;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h3><p><a href="https://mp.weixin.qq.com/s/7mJSpnHE319swy0LStpavQ" target="_blank" rel="noopener">here</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/LeetCode|String|20_ValidParentheses/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weihong Xu">
-      <meta itemprop="description" content="大前端成长之路">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/14/LeetCode%7CString%7C20_ValidParentheses/" class="post-title-link" itemprop="url">LeetCode|String|20 ValidParentheses</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-14 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-14T12:12:57+08:00">2020-07-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-18 04:40:37" itemprop="dateModified" datetime="2020-07-18T04:40:37+08:00">2020-07-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
-<p>An input string is valid if:</p>
-<p>Open brackets must be closed by the same type of brackets.<br>Open brackets must be closed in the correct order.<br>Note that an empty string is also considered valid.</p>
-<p>Example 1:</p>
-<blockquote>
-<p>Input: “()”<br>Output: true</p>
-</blockquote>
-<p>Example 2:</p>
-<blockquote>
-<p>Input: “()[]{}”<br>Output: true</p>
-</blockquote>
-<p>Example 3:</p>
-<blockquote>
-<p>Input: “(]”<br>Output: false</p>
-</blockquote>
-<p>Example 4:</p>
-<blockquote>
-<p>Input: “([)]”<br>Output: false</p>
-</blockquote>
-<p>Example 5:</p>
-<blockquote>
-<p>Input: “{[]}”<br>Output: true</p>
-</blockquote>
-<h1 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h1><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isValid = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> preS = <span class="string">''</span></span><br><span class="line">    <span class="keyword">while</span>(s !== preS)&#123;</span><br><span class="line">        preS = s</span><br><span class="line">        s = s.split(<span class="string">'()'</span>).join(<span class="string">''</span>)</span><br><span class="line">        s = s.split(<span class="string">'[]'</span>).join(<span class="string">''</span>)</span><br><span class="line">        s = s.split(<span class="string">'&#123;&#125;'</span>).join(<span class="string">''</span>) </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!s)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isValid = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> stack = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length; i++)&#123;</span><br><span class="line">        <span class="keyword">let</span> c = s.charAt(i);</span><br><span class="line">        <span class="keyword">switch</span>(c)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'('</span>:</span><br><span class="line">                stack.push(<span class="string">')'</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'&#123;'</span>:</span><br><span class="line">                stack.push(<span class="string">'&#125;'</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'['</span>:</span><br><span class="line">                stack.push(<span class="string">']'</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">if</span>(c !== stack.pop())&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> stack.length === <span class="number">0</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>Runtime: 88 ms, faster than 21.46% of JavaScript online submissions for Valid Parentheses.<br>Memory Usage: 33.1 MB, less than 99.01% of JavaScript online submissions for Valid Parentheses.</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/LeetCode|TwoPointer|24_SwapNodeInPairs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weihong Xu">
-      <meta itemprop="description" content="大前端成长之路">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/14/LeetCode%7CTwoPointer%7C24_SwapNodeInPairs/" class="post-title-link" itemprop="url">LeetCode|24 Swap Node In Pairs</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-14 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-14T12:12:57+08:00">2020-07-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-18 04:41:23" itemprop="dateModified" datetime="2020-07-18T04:41:23+08:00">2020-07-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>Given a linked list, swap every two adjacent nodes and return its head.</p>
-<p>You may not modify the values in the list’s nodes, only nodes itself may be changed.</p>
+          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>Given a binary tree, return all root-to-leaf paths.</p>
+<p>Note: A leaf is a node with no children.</p>
 <p>Example:</p>
 <blockquote>
-<p>Given 1-&gt;2-&gt;3-&gt;4, you should return the list as 2-&gt;1-&gt;4-&gt;3.</p>
+<p>Input:</p>
+<p>   1<br> /   <br>2     3<br> <br>  5</p>
+<p>Output: [“1-&gt;2-&gt;5”, “1-&gt;3”]</p>
 </blockquote>
-<h1 id="Sovle"><a href="#Sovle" class="headerlink" title="Sovle"></a>Sovle</h1><h3 id="Link-Table"><a href="#Link-Table" class="headerlink" title="Link Table"></a>Link Table</h3><p>这题本意比较简单，1 -&gt; 2 -&gt; 3 -&gt; 4 的情况下可以定义一个递归的辅助函数 helper，这个辅助函数对于节点和它的下一个节点进行交换，比如 helper(1) 处理 1 -&gt; 2，并且把交换变成 2 -&gt; 1 的尾节点 1的next继续指向 helper(3)也就是交换后的 4 -&gt; 3。</p>
-<p>边界情况在于，如果顺利的作了两两交换，那么交换后我们的函数返回出去的是 交换后的头部节点，但是如果是奇数剩余项的情况下，没办法做交换，那就需要直接返回 原本的头部节点。这个在 helper函数和主函数中都有体现。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val, next) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.next = (next===undefined ? null : next)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> swapPairs = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!head)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> helper = <span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> tempNext = node.next;</span><br><span class="line">        <span class="keyword">if</span>(tempNext)&#123;</span><br><span class="line">            <span class="keyword">let</span> tempNextNext = node.next.next; <span class="comment">//1 --&gt; 3--&gt;</span></span><br><span class="line">            <span class="comment">//swap 1-&gt; 2 to 2-&gt;1</span></span><br><span class="line">            node.next.next = node;</span><br><span class="line">            <span class="comment">//2 -&gt; 1 ---&gt;</span></span><br><span class="line">            node.next = tempNextNext ? helper(tempNextNext) : <span class="literal">null</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span> tempNext || node;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> res =helper(head);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> res || head;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Explanation: All root-to-leaf paths are: 1-&gt;2-&gt;5, 1-&gt;3</p>
+<h1 id="Sovle"><a href="#Sovle" class="headerlink" title="Sovle"></a>Sovle</h1><h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>用当前节点的值去拼接左右子树递归调用当前函数获得的所有路径。</p>
+<p>也就是根节点拼上以左子树为根节点得到的路径，加上根节点拼上以右子树为根节点得到的所有路径。</p>
+<p>直到叶子节点，仅仅返回包含当前节点的值的数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val, left, right) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.left = (left===undefined ? null : left)</span></span><br><span class="line"><span class="comment"> *     this.right = (right===undefined ? null : right)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;TreeNode&#125;</span> <span class="variable">root</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> binaryTreePaths = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> res = [];</span><br><span class="line">    traverse(root, <span class="string">""</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">traverse</span>(<span class="params">node ,path</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!node)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(!node.left &amp;&amp; !node.right)&#123;</span><br><span class="line">            res.push(path + node.val)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        traverse(node.left, path + node.val + <span class="string">"-&gt;"</span> );</span><br><span class="line">        traverse(node.right, path + node.val + <span class="string">"-&gt;"</span> );</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> binaryTreePaths = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> paths = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(!root)</span><br><span class="line">        <span class="keyword">return</span> paths;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> queue = [[root, []]];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(queue.length)&#123;</span><br><span class="line">        <span class="keyword">const</span> [node, res] = queue.shift();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(!node.left &amp;&amp; !node.right)&#123;</span><br><span class="line">        	<span class="comment">// array to string</span></span><br><span class="line">            paths.push(res.concat([node.val]).join(<span class="string">'-&gt;'</span>));</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(node.left !== <span class="literal">null</span>)&#123;</span><br><span class="line">            queue.push([node.left ,res.concat([node.val])]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(node.right !== <span class="literal">null</span>)&#123;</span><br><span class="line">            queue.push([node.right ,res.concat([node.val])]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> paths</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/LeetCode|stack|56%20-%20Merge%20Intervals/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weihong Xu">
+      <meta itemprop="description" content="大前端成长之路">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/14/LeetCode%7Cstack%7C56%20-%20Merge%20Intervals/" class="post-title-link" itemprop="url">LeetCode|stack|56 Merge Intervals</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-14 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-14T12:12:57+08:00">2020-07-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-19 03:38:33" itemprop="dateModified" datetime="2020-07-19T03:38:33+08:00">2020-07-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8C%E5%A0%86/" itemprop="url" rel="index"><span itemprop="name">数据结构，堆</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://leetcode.com/problems/merge-intervals/" target="_blank" rel="noopener">题目</a></h1><p>Given a collection of intervals, merge all overlapping intervals.</p>
+<p>Example 1:</p>
+<blockquote>
+<p>Input: [[1,3],[2,6],[8,10],[15,18]]<br>Output: [[1,6],[8,10],[15,18]]<br>Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].</p>
+</blockquote>
+<p>Example 2:</p>
+<blockquote>
+<p>Input: [[1,4],[4,5]]<br>Output: [[1,5]]<br>Explanation: Intervals [1,4] and [4,5] are considered overlapping.</p>
+</blockquote>
+<p>NOTE: input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.</p>
+<h1 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h1><h2 id="js默认sort"><a href="#js默认sort" class="headerlink" title="js默认sort"></a>js默认sort</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">intervals</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[][]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> merge = <span class="function"><span class="keyword">function</span>(<span class="params">intervals</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (intervals.length == <span class="number">0</span>) <span class="keyword">return</span> [];</span><br><span class="line">    </span><br><span class="line">    intervals.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> b[<span class="number">0</span>] - a[<span class="number">0</span>]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> res = [intervals.pop()];</span><br><span class="line">    </span><br><span class="line">     <span class="keyword">while</span> (intervals.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> [a, b] = res[res.length - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">const</span> [c, d] = intervals.pop();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(b &gt;= c)&#123;</span><br><span class="line">            <span class="keyword">const</span> start = <span class="built_in">Math</span>.min(a, c);</span><br><span class="line">            <span class="keyword">const</span> end = <span class="built_in">Math</span>.max(b, d);</span><br><span class="line">            </span><br><span class="line">            res[res.length - <span class="number">1</span>][<span class="number">0</span>] = start;</span><br><span class="line">            res[res.length - <span class="number">1</span>][<span class="number">1</span>] = end;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            res.push([c, d])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -449,7 +349,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/LeetCode|Two_Pointer|16-3Sum_Closet/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/LeetCode|DFS|198_HouseRobber/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -463,7 +363,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/14/LeetCode%7CTwo_Pointer%7C16-3Sum_Closet/" class="post-title-link" itemprop="url">LeetCode|Two_Pointer|16 3Sum Closet</a>
+            <a href="/2020/07/14/LeetCode%7CDFS%7C198_HouseRobber/" class="post-title-link" itemprop="url">LeetCode|DFS|198 HouseRobber</a>
         </h2>
 
         <div class="post-meta">
@@ -480,7 +380,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-18 04:41:16" itemprop="dateModified" datetime="2020-07-18T04:41:16+08:00">2020-07-18</time>
+                <time title="修改时间：2020-07-19 03:43:04" itemprop="dateModified" datetime="2020-07-19T03:43:04+08:00">2020-07-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -489,6 +389,14 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/DFS/" itemprop="url" rel="index"><span itemprop="name">DFS</span></a>
                 </span>
             </span>
 
@@ -503,21 +411,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>16—<a href="https://leetcode.com/problems/3sum-closest/" target="_blank" rel="noopener">3Sum Closest</a><br>Medium</p>
-<p>Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
+          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem "></a><a href="https://leetcode.com/problems/house-robber/" target="_blank" rel="noopener">Problem </a></h1><p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.</p>
+<p>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.</p>
 <p>Example 1:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums &#x3D; [-1,2,1,-4], target &#x3D; 1</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 &#x3D; 2).</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Input: nums = [1,2,3,1]<br>Output: 4<br>Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).<br>             Total amount you can rob = 1 + 3 = 4.</p>
+</blockquote>
+<p>Example 2:</p>
+<blockquote>
+<p>Input: nums = [2,7,9,3,1]<br>Output: 12<br>Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).<br>             Total amount you can rob = 2 + 9 + 1 = 12.</p>
+</blockquote>
+<h1 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h1><h3 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h3><p>动态规划的一个很重要的过程就是找到「状态」和「状态转移方程」，在这个问题里，设 i 是当前屋子的下标，状态就是 以 i 为起点偷窃的最大价值</p>
+<p>在某一个房子面前，盗贼只有两种选择：偷或者不偷。</p>
+<p>偷的话，价值就是「当前房子的价值」+「下两个房子开始盗窃的最大价值」<br>不偷的话，价值就是「下一个房子开始盗窃的最大价值」<br>在这两个值中，选择最大值记录在 dp[i]中，就得到了以 i 为起点所能偷窃的最大价值。。</p>
+<p>动态规划的起手式，找基础状态，在这题中，以终点为起点的最大价值一定是最好找的，因为终点不可能再继续往后偷窃了，所以设 n 为房子的总数量， dp[n - 1] 就是 nums[n - 1]，小偷只能选择偷窃这个房子，而不能跳过去选择下一个不存在的房子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> rob = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums.length === <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> dp = [];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = nums.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">let</span> robNow = nums[i] + (dp [i + <span class="number">2</span>] || <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">let</span> robNext = dp[i + <span class="number">1</span>] || <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        dp[i] = <span class="built_in">Math</span>.max(robNow, robNext);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> dp[<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
-<p>Constraints:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3 &lt;&#x3D; nums.length &lt;&#x3D; 10^3</span><br><span class="line">-10^3 &lt;&#x3D; nums[i] &lt;&#x3D; 10^3</span><br><span class="line">-10^4 &lt;&#x3D; target &lt;&#x3D; 10^4</span><br></pre></td></tr></table></figure>
-<h1 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h1><h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3><p>先按照升序排序，然后分别从左往右依次选择一个基础点 i（0 &lt;= i &lt;= nums.length - 3），在基础点的右侧用双指针去不断的找最小的差值。</p>
-<p>假设基础点是 i，初始化的时候，双指针分别是：</p>
-<p>left：i + 1，基础点右边一位。<br>right: nums.length - 1 数组最后一位。<br>然后求此时的和，如果和大于 target，那么可以把右指针左移一位，去试试更小一点的值，反之则把左指针右移。</p>
-<p>在这个过程中，不断更新全局的最小差值 min，和此时记录下来的和 res。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">target</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> threeSumClosest = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = nums.length;</span><br><span class="line">    <span class="keyword">if</span>(len === <span class="number">3</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> getSum(nums);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    nums.sort(<span class="function">(<span class="params">a,b</span>)=&gt;</span> a-b);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> min = <span class="literal">Infinity</span>;</span><br><span class="line">    <span class="keyword">let</span> res;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len - <span class="number">2</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">let</span> basic = nums[i];</span><br><span class="line">        <span class="keyword">let</span> left = i + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">let</span> right = len - <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">let</span> sum = basic + nums[left] + nums[right];</span><br><span class="line">            <span class="keyword">let</span> diff = <span class="built_in">Math</span>.abs(sum - target);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(diff &lt; min)&#123;</span><br><span class="line">                min = diff;</span><br><span class="line">                res = sum;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(sum &lt; target)&#123;</span><br><span class="line">                left ++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>( sum &gt; target)&#123;</span><br><span class="line">                right --;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> sum;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSum</span>(<span class="params">nums</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> nums.reduce(<span class="function">(<span class="params">total, cur</span>)=&gt;</span> total + cur, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><p><a href="https://mp.weixin.qq.com/s/7mJSpnHE319swy0LStpavQ" target="_blank" rel="noopener">双指针问题</a></p>
+<h1 id="resource"><a href="#resource" class="headerlink" title="resource"></a>resource</h1><p><a href="https://mp.weixin.qq.com/s/7mJSpnHE319swy0LStpavQ" target="_blank" rel="noopener">here</a></p>
 
       
     </div>
@@ -1147,6 +1058,91 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/React-Redux-store/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weihong Xu">
+      <meta itemprop="description" content="大前端成长之路">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/13/React-Redux-store/" class="post-title-link" itemprop="url">前端｜React|Redux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-13 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-13T12:12:57+08:00">2020-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-18 18:36:22" itemprop="dateModified" datetime="2020-07-18T18:36:22+08:00">2020-07-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E5%89%8D%E7%AB%AF/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E5%89%8D%E7%AB%AF/React/Redux/" itemprop="url" rel="index"><span itemprop="name">Redux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1218,18 +1214,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
