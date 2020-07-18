@@ -195,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/LeetCode|Graph|133_%20Clone_Graph/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/LeetCode|String|20_ValidParentheses/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -209,7 +209,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/14/LeetCode%7CGraph%7C133_%20Clone_Graph/" class="post-title-link" itemprop="url">LeetCode|Graph| 133 Clone Graph</a>
+            <a href="/2020/07/14/LeetCode%7CString%7C20_ValidParentheses/" class="post-title-link" itemprop="url">LeetCode|String|20 ValidParentheses</a>
         </h2>
 
         <div class="post-meta">
@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-18 04:40:11" itemprop="dateModified" datetime="2020-07-18T04:40:11+08:00">2020-07-18</time>
+                <time title="修改时间：2020-07-18 04:40:37" itemprop="dateModified" datetime="2020-07-18T04:40:37+08:00">2020-07-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -249,39 +249,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://leetcode.com/problems/clone-graph/" target="_blank" rel="noopener">题目</a></h1><p>Given a reference of a node in a connected undirected graph.</p>
-<p>Return a deep copy (clone) of the graph.</p>
-<p>Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors.</p>
+          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
+<p>An input string is valid if:</p>
+<p>Open brackets must be closed by the same type of brackets.<br>Open brackets must be closed in the correct order.<br>Note that an empty string is also considered valid.</p>
+<p>Example 1:</p>
 <blockquote>
-<p>class Node {<br>    public int val;<br>    public List<Node> neighbors;<br>}</Node></p>
+<p>Input: “()”<br>Output: true</p>
 </blockquote>
-<p>Test case format:</p>
-<p>For simplicity sake, each node’s value is the same as the node’s index (1-indexed). For example, the first node with val = 1, the second node with val = 2, and so on. The graph is represented in the test case using an adjacency list.</p>
-<p>Adjacency list is a collection of unordered lists used to represent a finite graph. Each list describes the set of neighbors of a node in the graph.</p>
-<p>The given node will always be the first node with val = 1. You must return the copy of the given node as a reference to the cloned graph.</p>
-<p>Example 1:<br><img src="/2020/07/14/LeetCode|Graph|133_%20Clone_Graph/Cypress_Field_Rendering.png" alt></p>
+<p>Example 2:</p>
 <blockquote>
-<p>Input: adjList = [[2,4],[1,3],[2,4],[1,3]]<br>Output: [[2,4],[1,3],[2,4],[1,3]]<br>Explanation: There are 4 nodes in the graph.<br>1st node (val = 1)’s neighbors are 2nd node (val = 2) and 4th node (val = 4).<br>2nd node (val = 2)’s neighbors are 1st node (val = 1) and 3rd node (val = 3).<br>3rd node (val = 3)’s neighbors are 2nd node (val = 2) and 4th node (val = 4).<br>4th node (val = 4)’s neighbors are 1st node (val = 1) and 3rd node (val = 3).</p>
-</blockquote>
-<p>Example 2:<br><img src="/2020/07/14/LeetCode|Graph|133_%20Clone_Graph/graph.png" alt></p>
-<blockquote>
-<p>Input: adjList = [[]]<br>Output: [[]]<br>Explanation: Note that the input contains one empty list. The graph consists of only one node with val = 1 and it does not have any neighbors.</p>
+<p>Input: “()[]{}”<br>Output: true</p>
 </blockquote>
 <p>Example 3:</p>
 <blockquote>
-<p>Input: adjList = []<br>Output: []<br>Explanation: This an empty graph, it does not have any nodes.</p>
+<p>Input: “(]”<br>Output: false</p>
 </blockquote>
-<p>Example 4:<br><img src="/2020/07/14/LeetCode|Graph|133_%20Clone_Graph/graph-1.png" alt></p>
+<p>Example 4:</p>
 <blockquote>
-<p>Input: adjList = [[2],[1]]<br>Output: [[2],[1]]</p>
+<p>Input: “([)]”<br>Output: false</p>
 </blockquote>
-<p>Constraints:</p>
-<p>1 &lt;= Node.val &lt;= 100<br>Node.val is unique for each node.<br>Number of Nodes will not exceed 100.<br>There is no repeated edges and no self-loops in the graph.<br>The Graph is connected and all nodes can be visited starting from the given node.</p>
-<h1 id="solve"><a href="#solve" class="headerlink" title="solve"></a>solve</h1><h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * // Definition for a Node.</span></span><br><span class="line"><span class="comment"> * function Node(val, neighbors) &#123;</span></span><br><span class="line"><span class="comment"> *    this.val = val === undefined ? 0 : val;</span></span><br><span class="line"><span class="comment"> *    this.neighbors = neighbors === undefined ? [] : neighbors;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;Node&#125;</span> <span class="variable">node</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;Node&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// DFS</span></span><br><span class="line"><span class="keyword">var</span> cloneGraph = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node === <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">    <span class="keyword">const</span> clone = <span class="function"><span class="params">root</span> =&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>( !map.has(root.val) )&#123;</span><br><span class="line">            map.set(root.val, <span class="keyword">new</span> Node(root.val) );</span><br><span class="line">            map.get(root.val).neighbors = root.neighbors.map(clone);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> map.get(root.val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> clone(node);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Example 5:</p>
+<blockquote>
+<p>Input: “{[]}”<br>Output: true</p>
+</blockquote>
+<h1 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h1><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isValid = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> preS = <span class="string">''</span></span><br><span class="line">    <span class="keyword">while</span>(s !== preS)&#123;</span><br><span class="line">        preS = s</span><br><span class="line">        s = s.split(<span class="string">'()'</span>).join(<span class="string">''</span>)</span><br><span class="line">        s = s.split(<span class="string">'[]'</span>).join(<span class="string">''</span>)</span><br><span class="line">        s = s.split(<span class="string">'&#123;&#125;'</span>).join(<span class="string">''</span>) </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!s)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isValid = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> stack = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length; i++)&#123;</span><br><span class="line">        <span class="keyword">let</span> c = s.charAt(i);</span><br><span class="line">        <span class="keyword">switch</span>(c)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'('</span>:</span><br><span class="line">                stack.push(<span class="string">')'</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'&#123;'</span>:</span><br><span class="line">                stack.push(<span class="string">'&#125;'</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'['</span>:</span><br><span class="line">                stack.push(<span class="string">']'</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">if</span>(c !== stack.pop())&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> stack.length === <span class="number">0</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="迭代模版"><a href="#迭代模版" class="headerlink" title="迭代模版"></a>迭代模版</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cloneGraph = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!node)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> queue = [node], visited = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">    visited.set(node, <span class="keyword">new</span> Node(node.val))</span><br><span class="line">    <span class="keyword">while</span>(queue.length &gt; <span class="number">0</span> )&#123;</span><br><span class="line">        <span class="keyword">const</span> curr = queue.pop()</span><br><span class="line">        curr.neighbors.forEach(<span class="function"><span class="params">neigbor</span> =&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(!visited.has(neigbor))&#123;</span><br><span class="line">                visited.set(neigbor, <span class="keyword">new</span> Node(neigbor.val))</span><br><span class="line">                queue.unshift(neigbor)</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">const</span> cloned = visited.get(curr)</span><br><span class="line">            <span class="keyword">const</span> cloneN = visited.get(neigbor)</span><br><span class="line">            cloned.neighbors.push(cloneN)</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> visited.get(node);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Runtime: 88 ms, faster than 21.46% of JavaScript online submissions for Valid Parentheses.<br>Memory Usage: 33.1 MB, less than 99.01% of JavaScript online submissions for Valid Parentheses.</p>
+</blockquote>
+
       
     </div>
 
@@ -470,7 +469,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/%E5%88%86%E7%B1%BB%E5%A4%A7%E7%BA%B2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/100%E9%81%93%E6%9C%89%E7%AD%94%E6%A1%88%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -484,7 +483,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/14/%E5%88%86%E7%B1%BB%E5%A4%A7%E7%BA%B2/" class="post-title-link" itemprop="url">分类大纲</a>
+            <a href="/2020/07/13/100%E9%81%93%E6%9C%89%E7%AD%94%E6%A1%88%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">前端｜前端面试题</a>
         </h2>
 
         <div class="post-meta">
@@ -494,90 +493,28 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-07-14 01:49:50" itemprop="dateCreated datePublished" datetime="2020-07-14T01:49:50+08:00">2020-07-14</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
-<h2 id="算法—分析大纲"><a href="#算法—分析大纲" class="headerlink" title="算法—分析大纲"></a>算法—分析大纲</h2><h1 id="分类大纲"><a href="#分类大纲" class="headerlink" title="分类大纲"></a>分类大纲</h1><ul>
-<li>算法的复杂度分析</li>
-<li>排序算法，以及他们的区别和优化</li>
-<li>数组中的双指针、滑动窗口思想</li>
-<li>利用 Map 和 Set 处理查找表问题</li>
-<li>链表的各种问题</li>
-<li>利用递归和迭代法解决二叉树问题</li>
-<li>栈、队列、DFS、BFS</li>
-<li>回溯法、贪心算法、动态规划</li>
-</ul>
-<p>#<a href="https://blog.csdn.net/linhuanmars/article/details/39366817" target="_blank" rel="noopener">图</a></p>
-<p>先来看看最基础的Clone Graph，很简单就是要复制一个图，常见的两种搜索算法（深度和广度）都可以用，具体细节就不在这里解释了，不熟悉的朋友可以看看相关资料。建议大家还是两种都要练一练，因为在解决具体问题中这两种方法还是很常用的。</p>
-<p>接下来的这些题都是基于图算法的应用，Word Ladder和Word Ladder II是比较典型的，看起来好像是字符串操作的题目，实际上这里得转换成图的角度来考虑，因为字符集比较小的缘故（26个小写字母），也就是说对于一个单词来说，改变其中一个字符可以有25条边（除去他自己），所以总共有（25*单词的长度L）条边。找到是否有满足一个单词转成另一个单词就是在这个图中找到一条路径。所以我们可以把问题转换成图用广度优先搜索来解决，找到即可停止。</p>
-<p>Word Ladder是广度优先搜索的应用，而Longest Consecutive Sequence则是深度优先搜索的应用。题目要求是找出最长的连续整数串，如果把数字看成结点，与它相邻的整数连有边，那么找到最长的连续串就是在这个图中找最长路径。因为是最长路径，这里用深度优先搜索是比较适合的。</p>
-<p>Word Search也是一道深度优先搜索的题目，是把上下左右相邻的结点看成有边联结，然后进行深度搜索就可以了，小细节是这里从每个点出发字符就可以重用，所以要重置一下访问结点。</p>
-<p>Surrounded Regions要用一个图形学中很常用的填充算法：Flood fill 算法，其实本质还是一个深度优先搜索，跟Word Search一样是把相邻的上下左右看成连边，然后进行搜索填充。</p>
-<p>#资源<br><a href="https://juejin.im/post/5f0b2313e51d45349b5ca747" target="_blank" rel="noopener">前端刷题</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/12/100%E9%81%93%E6%9C%89%E7%AD%94%E6%A1%88%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weihong Xu">
-      <meta itemprop="description" content="大前端成长之路">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/12/100%E9%81%93%E6%9C%89%E7%AD%94%E6%A1%88%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">100道有答案的前端面试题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-12 15:09:01" itemprop="dateCreated datePublished" datetime="2020-07-12T15:09:01+08:00">2020-07-12</time>
+              <time title="创建时间：2020-07-13 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-13T12:12:57+08:00">2020-07-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-15 02:43:57" itemprop="dateModified" datetime="2020-07-15T02:43:57+08:00">2020-07-15</time>
+                <time title="修改时间：2020-07-18 18:35:35" itemprop="dateModified" datetime="2020-07-18T18:35:35+08:00">2020-07-18</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
 
           
 
@@ -590,9 +527,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>100道有答案的前端面试</p>
-<hr>
-<p>来源：<a href="https://juejin.im/post/5f081d496fb9a07eb90cb5cf" target="_blank" rel="noopener">100道有答案的前端面试题</a></p>
+          <p>来源：<a href="https://juejin.im/post/5f081d496fb9a07eb90cb5cf" target="_blank" rel="noopener">100道有答案的前端面试题</a></p>
 <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h1 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h1><h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><p>#其他资源<br><a href="https://github.com/lgwebdream/FE-Interview" target="_blank" rel="noopener">前端面试星球</a><br><a href="https://github.com/sl1673495/leetcode-javascript" target="_blank" rel="noopener">Welcome to leetcode-javascript</a></p>
 
       
@@ -613,7 +548,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/12/%E6%B5%8B%E8%AF%95-Firebug/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/Angular%20&%20React%20&%20Vue%20%E5%AF%B9%E6%AF%94/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -627,65 +562,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/12/%E6%B5%8B%E8%AF%95-Firebug/" class="post-title-link" itemprop="url">测试-Firebug</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-12 00:56:14 / 修改时间：00:56:18" itemprop="dateCreated datePublished" datetime="2020-07-12T00:56:14+08:00">2020-07-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="测试-Firebug"><a href="#测试-Firebug" class="headerlink" title="测试-Firebug"></a>测试-Firebug</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/11/%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weihong Xu">
-      <meta itemprop="description" content="大前端成长之路">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/11/%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95/" class="post-title-link" itemprop="url">测试面试</a>
+            <a href="/2020/07/13/Angular%20&%20React%20&%20Vue%20%E5%AF%B9%E6%AF%94/" class="post-title-link" itemprop="url">前端｜Angular & React & Vue 对比</a>
         </h2>
 
         <div class="post-meta">
@@ -695,302 +572,31 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-07-11 18:14:50" itemprop="dateCreated datePublished" datetime="2020-07-11T18:14:50+08:00">2020-07-11</time>
+              <time title="创建时间：2020-07-13 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-13T12:12:57+08:00">2020-07-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-12 02:42:28" itemprop="dateModified" datetime="2020-07-12T02:42:28+08:00">2020-07-12</time>
+                <time title="修改时间：2020-07-18 18:32:15" itemprop="dateModified" datetime="2020-07-18T18:32:15+08:00">2020-07-18</time>
               </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
-<h2 id="测试面试"><a href="#测试面试" class="headerlink" title="测试面试"></a>测试面试</h2><p>#测试面试题</p>
-<p><a href="https://www.guru99.com/qa-interview-questions-answers.html" target="_blank" rel="noopener">这里</a></p>
-<ol>
-<li><p>QA和软件测试区别？</p>
-<ul>
-<li>QA：监视用于生产软件的过程的质量，确保最终产品的功能（function）满足用户要求的过程。</li>
-</ul>
-</li>
-<li><p>什么是Testware？</p>
-<ul>
-<li>测试工件：测试用例，测试数据，设计和执行测试需要的测试计划</li>
-</ul>
-</li>
-<li><p>构建和发布之间区别？</p>
-<ul>
-<li>内部版本：开发团队提供给测试团队的可安装软件编号</li>
-<li>发行版：这是安装程序软件的编号，由测试人员或者开发人员提交给客户</li>
-</ul>
-</li>
-<li><p>SQA再测试时候面临自动化挑战？</p>
-<ul>
-<li>掌握自动化工具</li>
-<li>自动化脚本的可重用性</li>
-<li>自动化复杂的测试用例</li>
-</ul>
-</li>
-<li><p>什么是漏洞泄漏和漏洞释放？</p>
-<ul>
-<li>数据驱动测试是一种自动化测试框架，他可以测试AUT上不同输入值。<ul>
-<li>直接从数据文件中读取（csv, excel, 数据池）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>发现错误的步骤？</p>
-<ul>
-<li>Open 给PM/DEV</li>
-<li>如果是有效缺陷（Dev确认），Dev需要fix； 否则拒绝</li>
-<li>下一步将检查它是否在范围内部。如果该错误不是当前版本的一部分，则缺陷被推迟。</li>
-<li>Dulplicate</li>
-<li>Fix后， in progress</li>
-<li>修复后pass，关闭状态</li>
-</ul>
-</li>
-<li><p>测试策略是什么？</p>
-<ul>
-<li>简介</li>
-<li>资源</li>
-<li>测试活动的范围和时间表</li>
-<li>测试工具</li>
-<li>测试优先级</li>
-<li>测试计划</li>
-<li>必须执行的测试类型</li>
-</ul>
-</li>
-<li><p>不同类型的软件测试？</p>
-<ul>
-<li>单元测试</li>
-<li>集成测试 和 回归测试</li>
-<li>震动测试</li>
-<li>烟雾测试</li>
-<li>功能测试</li>
-<li>性能测试</li>
-<li>白盒/黑盒测试</li>
-<li>Alpha/Beta测试<ul>
-<li>Pre-apha：功能不完整的版本    </li>
-<li>Alpha：受开发方控制的，用户的数量相对比较少</li>
-<li>beta：测试的环境是不受开发方控制的（真实用户）</li>
-<li>Released candidate （最终测试版本）/Golden Master：两个版本 最后应用RC2</li>
-<li>RTM（Release To Manufacturing）之简称，意思是：发放给生产商</li>
-<li>至最后的Gold（完成版）：</li>
-<li>Stable：稳定版本来自预览版本释出使用与改善而修正完成</li>
-</ul>
-</li>
-<li>负载测试/压力测试</li>
-<li>系统测试</li>
-</ul>
-</li>
-<li><p>什么是分支测试，什么是边界测试？</p>
-<ul>
-<li>对代码的所有分支的测试（一次测试）称为分支测试。在测试过程中，专注于软件的极限条件的测试称为边界测试。</li>
-</ul>
-</li>
-<li><p>测试计划和测试用例的内容是什么？</p>
-<ul>
-<li>测试目标 objectives</li>
-<li>测试范围 scope</li>
-<li>测试框架 frame</li>
-<li>环境 environment</li>
-<li>测试原因 </li>
-<li>the criteria for entrance and exit</li>
-<li>可交付成果 deliverable</li>
-<li>风险因素 risk factors</li>
-</ul>
-</li>
-<li><p>什么是Agile Test？重要性？</p>
-<ul>
-<li>编码和测试同时进行。它需要持续的客户互动</li>
-</ul>
-</li>
-<li><p>什么是测试用例？</p>
-<ul>
-<li>被测试应用程序特定条件。<ul>
-<li>具有测试步骤</li>
-<li>先决条件</li>
-<li>测试环境 </li>
-<li>输出信息</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>自动化测试计划的策略是什么？</p>
-<ul>
-<li>自动化测试计划的策略</li>
-<li>编织自动化测试计划</li>
-<li>记录场景</li>
-<li>错误处理程序合并</li>
-<li>通过插入<strong>检查点</strong>和<strong>循环结果</strong>来增强脚本</li>
-<li>调试脚本并解决问题</li>
-<li>重新运行脚本</li>
-<li>报告结果</li>
-</ul>
-</li>
-<li><p>什么是质量审核？</p>
-<ul>
-<li>确定质量控制程序有效</li>
-<li>独立检查</li>
-</ul>
-</li>
-<li><p>测试人员在测试时使用什么工具？</p>
-<ul>
-<li>Selenium</li>
-<li>Firebug</li>
-<li>OpenSTA</li>
-<li>WinSCP</li>
-<li>YSlow for FireBug</li>
-<li>Web Developer toolbar for firebox</li>
-<li>Charles<ul>
-<li>支持SSL代理。可以截取分析SSL的请求。、</li>
-<li>支持流量控制。可以模拟慢速网络以及等待时间（latency）较长的请求。</li>
-<li>支持AJAX调试。可以自动将json或xml数据格式化，方便查看。</li>
-<li>支持AMF调试。可以将Flash Remoting 或 Flex Remoting信息格式化，方便查看。</li>
-<li>支持重发网络请求，方便后端调试。</li>
-<li>支持修改网络请求参数。</li>
-<li>支持网络请求的截获并动态修改。</li>
-<li>检查HTML，CSS和RSS内容是否符合W3C标准。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>解释压力测试，负载压力和容量测试？</p>
-</li>
-<li><p>解决软件开发问题的五个常见解决方案是什么？</p>
-</li>
-<li><p>什么是“用例”案，包括什么？</p>
-</li>
-<li><p>什么是CRUD测试以及如何测试CRUD？</p>
-</li>
-<li><p>什么是线程测试？</p>
-</li>
-<li><p>什么是配置管理？</p>
-</li>
-</ol>
-<h1 id="API测试"><a href="#API测试" class="headerlink" title="API测试"></a>API测试</h1><ol>
-<li>什么是API<ul>
-<li>应用程序编写接口</li>
-</ul>
-</li>
-<li>API测试是什么<ul>
-<li>软件测试 - 涉及直接测试API</li>
-<li>集成测试 -  功能，可靠性，性能和安全性</li>
-<li>关注软件架构的业务逻辑层</li>
-</ul>
-</li>
-<li>API测试类型<ul>
-<li>单元测试、功能测试、负载测试、安全测试、UI测试、模糊测试等等</li>
-</ul>
-</li>
-<li>列举API测试中使用的一些常用协议<ul>
-<li>HTTP、thrift、rest、jms、soap等等</li>
-</ul>
-</li>
-<li>API与web服务之间的区别<ul>
-<li><strong>web服务</strong>：所有的web服务都是api；</li>
-<li>所有web服务都需要通过web（http）公开；</li>
-<li>web服务只有三种使用方式：soap、rest和sml-rpc进行通信<ul>
-<li>简单对象访问协议。是一种基于XML的消息传递协议</li>
-<li>Representational State Transfer。它是一组帮助开发人员执行请求和接收响应的函数。通过REST API中的HTTP协议进行交互</li>
-<li>post用于在服务器上创建新对象，put请求用于在替换对象。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>.PUT和POST方法区别 <ul>
-<li>post用于在服务器上创建新对象，put请求用于在替换对象。</li>
-</ul>
-</li>
-<li>执行API测试时我们面临的BUG类型是什么<ul>
-<li>压力，性能和安全问题 功能重复 或 缺失可靠性问题</li>
-<li>消息不当不兼容的错误</li>
-<li>处理机制多线程问题不合适的错误</li>
-</ul>
-</li>
-<li>API测试面临的主要挑战是什么<ul>
-<li>适当的参数及其组合正确分类参数顺序验证输出</li>
-</ul>
-</li>
-<li>API测试与单元测试之间的区别<ul>
-<li>单元测试：白盒测试 - 构建中的过程之前 - 涉及源代码 - 测试范围有限，只考虑基本功能</li>
-<li>API测试：多由QA团队进行多为黑盒测试，在构建部署后进行大多不涉及源代码API测试测试范围很广</li>
-</ul>
-</li>
-<li>常用的API文档模板<ul>
-<li>一些API文档模板如下。</li>
-<li>SwaggerFlatDocRestDocAPI blueprintSlateMiredotWeb服务API规范</li>
-</ul>
-</li>
-<li>API测试中需要验证哪些内容<ul>
-<li>数据准确性HTTP或其他协议状态代码响应时间</li>
-<li>API返回任何错误时的错误代码授权</li>
-<li>检查非功能测试，如性能测试，安全测试</li>
-</ul>
-</li>
-<li>API常见测试有哪些<ul>
-<li></li>
-</ul>
-</li>
-<li>get请求与post请求区别</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/11/%E5%AE%89%E5%85%A8%E2%80%94javascript-%E9%98%B2%E6%AD%A2%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weihong Xu">
-      <meta itemprop="description" content="大前端成长之路">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/11/%E5%AE%89%E5%85%A8%E2%80%94javascript-%E9%98%B2%E6%AD%A2%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">安全—javascript-防止依赖注入</a>
-        </h2>
-
-        <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
+                <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-11 13:45:55 / 修改时间：18:13:58" itemprop="dateCreated datePublished" datetime="2020-07-11T13:45:55+08:00">2020-07-11</time>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/React/Angular/" itemprop="url" rel="index"><span itemprop="name">Angular</span></a>
+                </span>
             </span>
 
           
@@ -1004,37 +610,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<h2 id="安全—javascript-防止sql注入"><a href="#安全—javascript-防止sql注入" class="headerlink" title="安全—javascript-防止sql注入"></a>安全—javascript-防止sql注入</h2><p>SQL注入攻击的总体思路</p>
-<ul>
-<li>寻找到SQL注入的位置</li>
-<li>判断服务器类型和后台数据库类型</li>
-<li>针对不通的服务器和数据库特点进行SQL注入攻击</li>
+          <p>#相同点：</p>
+<ol>
+<li>单页应用程序</li>
+<li>组建管理 Component</li>
+<li>数据流动</li>
+<li>后段API如何进行 路径如何处理</li>
+<li>css/js/</li>
+<li>webpeck</li>
+</ol>
+<p>#不同点:</p>
+<ol>
+<li>React - 面向网页显示<br> jsx - 组建都涵盖在这一个文件中（html / css/ js）<br> 整体设计变化不大<br> 容易潜入网页</li>
+<li>Angular - 面向整体应用开发（应用开发）<ul>
+<li>精简架构设计 提供TS （AngularJs以后）</li>
+<li>html/cs/js 分开</li>
 </ul>
-<p>#各种语言如何防止</p>
-<ol>
-<li><p>javascript</p>
-<ol>
-<li><p>URL 地址防止注入：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//过滤URL非法SQL字符</span></span><br><span class="line">	<span class="keyword">var</span> sUrl=location.search.toLowerCase();</span><br><span class="line">	<span class="keyword">var</span> sQuery=sUrl.substring(sUrl.indexOf(<span class="string">"="</span>)+<span class="number">1</span>);</span><br><span class="line">	re=<span class="regexp">/select|update|delete|truncate|join|union|exec|insert|drop|count|'|"|;|&gt;|&lt;|%/i</span>;</span><br><span class="line">	<span class="keyword">if</span>(re.test(sQuery))</span><br><span class="line">	&#123;</span><br><span class="line">		alert(<span class="string">"请勿输入非法字符"</span>);	</span><br><span class="line">		location.href=sUrl.replace(sQuery,<span class="string">""</span>);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>输入文本框防注入 </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">AntiSqlValid</span>(<span class="params">oField </span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	re= <span class="regexp">/select|update|delete|exec|count|'|"|=|;|&gt;|&lt;|%/i</span>;</span><br><span class="line">	<span class="keyword">if</span> ( re.test(oField.value) )</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//alert("请您不要在参数中输入特殊字符和SQL关键字！"); //注意中文乱码</span></span><br><span class="line">		oField.value = <span class="string">";</span></span><br><span class="line"><span class="string">		oField.className="</span>errInfo<span class="string">";</span></span><br><span class="line"><span class="string">		oField.focus();</span></span><br><span class="line"><span class="string">		return false;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	...</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">//在需要防注入的输入文本框添加如下方法</span></span><br><span class="line"><span class="string">txtName.Attributes.Add("</span>onblur<span class="string">", "</span>AntiSqlValid(<span class="keyword">this</span>)<span class="string">");//防止Sql脚本注入</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>node</p>
-<ol>
-<li>node-mysql  </li>
-</ol>
-</li>
-<li><p>Php</p>
-<ol>
-<li>Prepared Statements  <ul>
-<li>采用预编译语句集，它内置了处理SQL注入的能力，只要使用它的setXXX方法传值即可。 </li>
+<li>Vue 界面显示（类似React 但不用选择第三方插件 也没有太多选择）<ul>
+<li>本身组建分开 简单</li>
+<li>一直在追赶Angular</li>
+<li>没有大公司的支持</li>
 </ul>
 </li>
 </ol>
+<p>##React &amp; Vue：不断增加第三方插件</p>
+<hr>
+<p>#Angular</p>
+<ol>
+<li>多Component 后可以lazy mounting </li>
+<li>嵌入多个moudule</li>
+<li>Single Page Component（React类似） App Component - index.html<br> 3.1 Rounting: (单页应用开发之前 rount 是在后端，计算出html数据推送到前端。 ) <pre><code>* 单页应用，后段只管理数据
+* Angular framework 里面（多个lib，api请求的lib，rounting moudule） 所以称之为架构
+** Vue &amp; React：lib 放在min-js 通过require加载</code></pre></li>
+<li>Angular的标准化 让代码可以90%重用</li>
+<li>TypeScript 微软主推（编程效率）</li>
+<li>模版 代码 css可分<ul>
+<li>React：JSX 混合</li>
+<li>大型项目重要性</li>
+</ul>
+</li>
+<li>API访问<ul>
+<li>直接集成HTML dispution</li>
+<li>开发环境需要share proxy，命令行配置</li>
+<li>React 有一个proxy属性，设置自己API</li>
+</ul>
 </li>
 </ol>
 
@@ -1056,7 +676,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/10/JavaScript%E9%9D%A2%E8%AF%95/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/Angular%E5%8E%86%E5%8F%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1070,7 +690,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/10/JavaScript%E9%9D%A2%E8%AF%95/" class="post-title-link" itemprop="url">JavaScript面试</a>
+            <a href="/2020/07/13/Angular%E5%8E%86%E5%8F%B2/" class="post-title-link" itemprop="url">前端| Angular 历史</a>
         </h2>
 
         <div class="post-meta">
@@ -1079,9 +699,28 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-07-10 20:20:35 / 修改时间：20:58:24" itemprop="dateCreated datePublished" datetime="2020-07-10T20:20:35+08:00">2020-07-10</time>
+              <time title="创建时间：2020-07-13 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-13T12:12:57+08:00">2020-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-18 18:31:40" itemprop="dateModified" datetime="2020-07-18T18:31:40+08:00">2020-07-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/Angular/" itemprop="url" rel="index"><span itemprop="name">Angular</span></a>
+                </span>
             </span>
 
           
@@ -1095,7 +734,134 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="JavaScript面试"><a href="#JavaScript面试" class="headerlink" title="JavaScript面试"></a>JavaScript面试</h2><p>#资源</p>
+          <p>From : <a href="https://medium.com/@lifenshades/difference-among-angular-8-7-6-5-4-3-2-breakdown-new-features-and-changes-811fb5f8e6f0" target="_blank" rel="noopener">点我</a><br>#Angular 2(typescript)</p>
+<ol>
+<li>Component-based instead of Controller</li>
+<li>ES6</li>
+<li>Mobile (low-end) device</li>
+</ol>
+<p>#Angular 3</p>
+<ol>
+<li>single repo for everthiing @angular/core @angular/compiler @angular/router</li>
+<li>router realsing (MonoRepo)</li>
+</ol>
+<p>#Angular 4</p>
+<ol>
+<li>underlying concecpt (same or inheritance from 2)</li>
+<li>reduce size of AOT compiler</li>
+<li>Typescript 2.1</li>
+<li>seperate @angular/core to @angular/animation</li>
+<li>block in *ngIF introduced:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*ngIf&#x3D;”yourCondition; else myFalsyTemplate”s</span><br><span class="line">“&lt;ng-template #myFalsyTemplate&gt;Else Html&lt;&#x2F;ng-template&gt;”</span><br></pre></td></tr></table></figure>
+
+<p>#Angular 5</p>
+<ol>
+<li>HttpClient : a new modulr</li>
+<li>exportAs: multiply names suport for both directives and component</li>
+<li>new Router Life-cycle Events:<ul>
+<li>ActivationStart, ActivationEnd,</li>
+<li>ChildActivationStart, ChildActivationEnd,</li>
+<li>GuardsCheckStart, GuardsCheckEnd, </li>
+<li>ResolveStart and ResolveEnd.</li>
+</ul>
+</li>
+</ol>
+<p>#Angular 6</p>
+<ol>
+<li>More tool-chain and less underlying framework</li>
+<li>RxJs 6</li>
+<li>Synchronizes major version : <ul>
+<li>Angular framework</li>
+<li>Angular CLI</li>
+<li>Angular Material + CDK</li>
+<li><code>&lt;ng-template&gt;</code> instead of <code>&lt;template&gt;</code></li>
+<li>Injectable</li>
+<li>From   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; app.module.ts</span><br><span class="line">import &#123;MyService&#125; from &#39;.&#x2F;my-service&#39;;</span><br><span class="line">providers: [...MyService]</span><br></pre></td></tr></table></figure>
+ to  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MyService.ts</span></span><br><span class="line">@Injectable(&#123; <span class="attr">providedIn</span>: <span class="string">'root'</span>&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">MyService</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>#Angular 7</li>
+</ol>
+<p>#Angular 8    </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/JavaScript%E9%9D%A2%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weihong Xu">
+      <meta itemprop="description" content="大前端成长之路">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/13/JavaScript%E9%9D%A2%E8%AF%95/" class="post-title-link" itemprop="url">前端｜JavaScript面试</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-13 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-13T12:12:57+08:00">2020-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-18 18:32:58" itemprop="dateModified" datetime="2020-07-18T18:32:58+08:00">2020-07-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>#资源</p>
 <ul>
 <li><a href="https://juejin.im/post/5c36fe50518825253b5e94f4" target="_blank" rel="noopener">JavaScript设计模式总结</a></li>
 <li><a href="https://juejin.im/entry/58c280b1da2f600d8725b887" target="_blank" rel="noopener">https://juejin.im/entry/58c280b1da2f600d8725b887</a></li>
@@ -1138,7 +904,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/10/java%E9%9D%A2%E8%AF%95/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/React-Redux-store/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1152,7 +918,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/10/java%E9%9D%A2%E8%AF%95/" class="post-title-link" itemprop="url">java面试</a>
+            <a href="/2020/07/13/React-Redux-store/" class="post-title-link" itemprop="url">前端｜React|Redux</a>
         </h2>
 
         <div class="post-meta">
@@ -1161,9 +927,36 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-07-10 00:19:51 / 修改时间：00:21:27" itemprop="dateCreated datePublished" datetime="2020-07-10T00:19:51+08:00">2020-07-10</time>
+              <time title="创建时间：2020-07-13 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-13T12:12:57+08:00">2020-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-18 18:36:22" itemprop="dateModified" datetime="2020-07-18T18:36:22+08:00">2020-07-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E5%89%8D%E7%AB%AF/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E5%89%8D%E7%AB%AF/React/Redux/" itemprop="url" rel="index"><span itemprop="name">Redux</span></a>
+                </span>
             </span>
 
           
@@ -1177,8 +970,244 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<h2 id="java面试"><a href="#java面试" class="headerlink" title="java面试"></a>java面试</h2><ul>
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/Vue-%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weihong Xu">
+      <meta itemprop="description" content="大前端成长之路">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/13/Vue-%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="post-title-link" itemprop="url">前端｜Vue 杂七杂八</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-13 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-13T12:12:57+08:00">2020-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-18 18:38:04" itemprop="dateModified" datetime="2020-07-18T18:38:04+08:00">2020-07-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/%E5%89%8D%E7%AB%AF/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h1><ol>
+<li><p>Keep-alive （场景 视频VLog） <a href="https://juejin.im/post/5d92acae6fb9a04e143daa0c" target="_blank" rel="noopener">  文章</a></p>
+<ol>
+<li>作用：缓存 - 降级荣塞</li>
+<li>How： 以队列方式缓存</li>
+<li>缓存的是什么：VNode (虚拟DOM)</li>
+<li>坑：内存泄漏   解决方法：缓存数量限制<ol start="5">
+<li>使用了什么机制： LRU</li>
+</ol>
+<ul>
+<li>显示隐藏</li>
+<li>设置缓存大小 </li>
+<li>自己写<pre><code>（Keep-alive 缓存的是结果，也就是vnode，如果太大就缓存数据）</code></pre><ul>
+<li>有卡顿<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Vue 基于数据驱动  -&gt; 缓存数据<br>#第一 </p>
+<ol>
+<li><p>Vue runtime + complier</p>
+<ul>
+<li><p>运行时生命周期 编译时</p>
+<ul>
+<li><p>template -&gt;</p>
+</li>
+<li><p>(上线前变异)ast-&gt;</p>
+<ul>
+<li><p>(本地Complier，将<em>.vue打包成js，上线的时候只是JS 上传到服务器)render -&gt;</em></p>
+<ul>
+<li><p>【运行时】<strong>vnode （内存中存在的状态）在内存中diff</strong>-&gt;</p>
+<blockquote>
+<pre><code>DOM PULL 在React，主动发出的动作（react setSate props）后数据发生改变
+ DOM PUSH 在Vue，通过响应数据生成DOM                    </code></pre><p><code>&lt;div&gt;&lt;/div&gt;.   一个组建-&gt; 一个watcher[内存]-&gt; DOM</code><br>组建内部用Diff修改<br>为什么有Vnode/虚拟DOM： （缓存：类似 寄存器/内存/硬盘） 虚拟DOM - 缓冲地带 - 不同端运行</p>
+</blockquote>
+<p>在线编译：浏览器JS运行时候调用template，然后解析<br>RuntimeOnly：如果要在Template里面加入<strong>Component后性能非常差，必须要加入Complier包</strong>，优化成render函数然后删除这个包（资源优化）。                </p>
+<ul>
+<li>（通过patch（）{ doucument.getElementBy(‘’).apendchild()}）<strong>修改正式DOM的动作，通过虚拟DOM树递归【慢】， react中做了fiber，做时间分片</strong> <a href="https://juejin.im/post/5dadc6045188255a270a0f85" target="_blank" rel="noopener">React Fiber(时间分片)</a><ul>
+<li>-&gt; 转换成DOM</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>script(浏览器从服务器拉下js开始运行) –&gt; </p>
+</li>
+<li><p>new Vue()  -&gt; (把数据处理成)响应data <strong>（生成vnode）</strong></p>
+</li>
+<li><p>style</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Vue 浏览器端一贞解析机制</p>
+</li>
+<li><p>Vue 首屏优化</p>
+<ul>
+<li>优化<ul>
+<li>如何优化加载速度，白屏如何引起的<ul>
+<li>运行环境：</li>
+<li>浏览器如何渲染：js/css/html </li>
+<li>来源 - <a href="https://aerotwist.com/blog/the-anatomy-of-a-frame/" target="_blank" rel="noopener">浏览器一帧渲染</a>：       </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/java%E9%9D%A2%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weihong Xu">
+      <meta itemprop="description" content="大前端成长之路">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/13/java%E9%9D%A2%E8%AF%95/" class="post-title-link" itemprop="url">后端｜java面试</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-13 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-13T12:12:57+08:00">2020-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-18 18:33:38" itemprop="dateModified" datetime="2020-07-18T18:33:38+08:00">2020-07-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%90%8E%E7%AB%AF/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
 <li>Java 基础</li>
 <li>容器</li>
 <li>多线程</li>
@@ -1217,7 +1246,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1275,6 +1304,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Weihong Xu"
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">Weihong Xu</p>
   <div class="site-description" itemprop="description">大前端成长之路</div>
 </div>
@@ -1283,18 +1314,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
