@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-18T11:13:44.242Z</updated>
+  <updated>2020-07-18T17:41:36.215Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试｜系统设计｜ 大纲</title>
+    <link href="http://yoursite.com/2020/07/19/%E9%9D%A2%E8%AF%95%EF%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%EF%BD%9C%20%E5%A4%A7%E7%BA%B2%20/"/>
+    <id>http://yoursite.com/2020/07/19/%E9%9D%A2%E8%AF%95%EF%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%EF%BD%9C%20%E5%A4%A7%E7%BA%B2%20/</id>
+    <published>2020-07-18T19:12:57.000Z</published>
+    <updated>2020-07-18T17:41:36.215Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;h2 id=&quot;美国&quot;&gt;&lt;a href=&quot;#美国&quot; class=&quot;headerlink&quot; title=&quot;美国&quot;&gt;&lt;/a&gt;美国&lt;/h2&gt;&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="系统设计" scheme="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>中间件策略</title>
@@ -511,31 +538,6 @@
     
     
       <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode|Greedy|455 Assign Cookies</title>
-    <link href="http://yoursite.com/2020/07/14/LeetCode|Greedy|455_Assign%20Cookies/"/>
-    <id>http://yoursite.com/2020/07/14/LeetCode|Greedy|455_Assign%20Cookies/</id>
-    <published>2020-07-14T04:12:57.000Z</published>
-    <updated>2020-07-17T20:40:25.359Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h1&gt;&lt;p&gt;Assume you are an awesome parent and want to give
-        
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode刷题" scheme="http://yoursite.com/categories/LeetCode%E5%88%B7%E9%A2%98/"/>
-    
     
   </entry>
   

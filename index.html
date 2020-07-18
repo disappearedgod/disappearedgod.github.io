@@ -170,6 +170,111 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/19/%E9%9D%A2%E8%AF%95%EF%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%EF%BD%9C%20%E5%A4%A7%E7%BA%B2%20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weihong Xu">
+      <meta itemprop="description" content="大前端成长之路">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/19/%E9%9D%A2%E8%AF%95%EF%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%EF%BD%9C%20%E5%A4%A7%E7%BA%B2%20/" class="post-title-link" itemprop="url">面试｜系统设计｜ 大纲</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-19 03:12:57 / 修改时间：01:41:36" itemprop="dateCreated datePublished" datetime="2020-07-19T03:12:57+08:00">2020-07-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%A2%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">面试</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%A2%E8%AF%95/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">系统设计</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="美国"><a href="#美国" class="headerlink" title="美国"></a>美国</h2><p><a href="https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=169343&extra=page%3D1%26filter%3Dtypeid%26typeid%3D1025%26typeid%3D1025" target="_blank" rel="noopener">From</a></p>
+<p>所谓的system design是要做一个能够在现实世界中运行的系统的设计，所以说system design可以cover任何topic，从建大桥到做手机到做网站，而局限到软件，尤其是面试的scenario，大体局限于以下几种：</p>
+<ol>
+<li>Web application，典型例子：设计一个e-commerce商品的detail page(参考Amazon商品detail page)。设计一个online小游戏。设计一个论坛。</li>
+<li>简单的Web Service，典型例子：设计一个short url service。</li>
+<li>实时／半实时的消息update，典型例子：messenger，news feed。</li>
+<li>数据系统，典型例子：top url hits, unique url hits</li>
+<li>内容分发系统，典型例子：设计Netflix CDN</li>
+<li>专业知识，典型例子：推荐系统，分布式系统基础架构，搜索。。。</li>
+</ol>
+<p>个人认为，要想在System Design上面达到像刷题那样的熟练程度，对于刚刚入行一两年甚至三四年的朋友来说，是不可能的，因为这些问题要想准确答出，已经远远超出了对junior engineer的要求，甚至已经是senior engineer的水准。</p>
+<p>但是即使面试官并没有期望你达到senior engineer的水准，至少他还是想要通过这个问题来摸清你的工程经验，如果所答完全非所问，那么给面试官留下的印象将是非常糟糕的。你的方案可以不是最优的，甚至可能离最优有一段距离，但是你的方案一定不能是ridiculous的。起码在小的scale上要能有可行性，可以展现你的一些基本design sense。</p>
+<p>基础知识的准备：</p>
+<ol>
+<li>数据库 —— 了解relational数据库(Oracle/postgres)的基本知识，了解数据库的partition，了解查询，了解数据库的replication；了解现在流行的NoSQL databases: key-value database (Riak/DynamoDB)，document based(mongodb)，graph based, big table(or column based - HBase)…这里DynamoDB有个paper，关于eventually consistence需要明白CAP定理。</li>
+<li>队列服务—— 了解Kafka或者Kinesis，明白队列服务的应用场景</li>
+<li>Web层，了解MVC，具体技术可以了解Spring，Nodejs</li>
+<li>前端，了解Javascript，Html</li>
+<li>了解SOAP和RESTful</li>
+<li>理解cache——如何以及在何种情况下运用cache降低latency</li>
+<li>理解现代分布式系统需要大量monitor以及log analysis</li>
+<li>理解系统中不能有single point of failure，从failure的角度出发设计系统，运用Write Ahead Log进行故障恢复，充分replicate你的service所以任何一个机器、集群、机房的灾难都不会对你的整体服务造成不可挽回的影响</li>
+<li>处理高并发，明白资源共享是影响并发的主要原因之一（另一个原因是进程间通信）——如何decouple共享资源，提高并发效率</li>
+<li>明白基本的效率评定标准，如TPS。。。</li>
+<li>理解一些分布式系统的基本概念，如上面提到的CAP，以及Consistent Hashing，Vector Clock</li>
+<li>读一些paper，如Akamai的CDN，Amazon的Dynamo，Google的Map-reduce（很老嗯）等等</li>
+<li>亲手实现一个简单的网站，从前端到数据库都接触一些</li>
+<li>了解Hadoop的基本功能，如HDFS，Map-Reduce。</li>
+<li>了解Apache Storm的基本功能。</li>
+<li>结合所学的基础知识，考虑你所设计的系统的Availability，Scalability和Performance.</li>
+</ol>
+<h1 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h1><ol>
+<li><a href="https://medium.com/@NetflixTechBlog" target="_blank" rel="noopener">medium NetflixTechBlog</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/18/%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%96%E7%95%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -981,98 +1086,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/15/LeetCode|Greedy|200%20Number%20of%20Islands%20/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weihong Xu">
-      <meta itemprop="description" content="大前端成长之路">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JavaScript|JVM|前端面试之路">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/15/LeetCode%7CGreedy%7C200%20Number%20of%20Islands%20/" class="post-title-link" itemprop="url">LeetCode|Greedy|200 Number of Islands</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-15 12:12:57" itemprop="dateCreated datePublished" datetime="2020-07-15T12:12:57+08:00">2020-07-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-18 04:40:18" itemprop="dateModified" datetime="2020-07-18T04:40:18+08:00">2020-07-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>Given a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</p>
-<p>Example 1:</p>
-<blockquote>
-<p>Input: grid = [<br>  [“1”,”1”,”1”,”1”,”0”],<br>  [“1”,”1”,”0”,”1”,”0”],<br>  [“1”,”1”,”0”,”0”,”0”],<br>  [“0”,”0”,”0”,”0”,”0”]<br>]<br>Output: 1</p>
-</blockquote>
-<p>Example 2:</p>
-<p><code>Input: grid = [
-  [&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;],
-  [&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;],
-  [&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],
-  [&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;]
-]
-Output: 3</code></p>
-<h1 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h1><p><a href="https://leetcode.com/problems/number-of-islands/discuss/429842/JavaScript-DFS-Commented-Thought-Process-Beats-100-Time-and-Space" target="_blank" rel="noopener">here</a></p>
-<p>Below is what I typed out on a google doc in preparation for a google phone interview.<br>I thought it may be helpful for others to see and give feedback on my thought process, and if it makes sense/is followable. After all, that’s what I want my interviewer to do, understand me.<br>Goal: Count number of islands<br>Rules:</p>
-<p>An island is surrounded by water(0’s)<br>We count things apart of our island if it is horizontal or vertical connected<br>Plan:<br>Start at the top left of the 2d array, and visit the first row, and all its columns, trying to find the start of the first island<br>Once we find a 1, we can increment the number of islands, but we want to know where the island ends. So let’s look and follow any of the horizontal or vertical spots near the current position we are on.<br>First, let’s mark the current start/visited parts of the islands as visited by turning them into a 0,<br>Second, explore all the adjacent possibilities,<br>If one of them is a 1, recursively turn it into a 0 and check its children<br>Once we are done, we should have gotten rid of the island that we discovered and can move on to the next island, if it exists in the 2d array</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;character[][]&#125;</span> <span class="variable">grid</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> numIslands = <span class="function"><span class="keyword">function</span>(<span class="params">grid</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!grid)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> m =<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> n = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; grid.length; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; grid[i].length; j++)&#123;</span><br><span class="line">            res += grid[i][j] -<span class="string">"0"</span>;</span><br><span class="line">            dfs(i, j, grid);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dfs</span>(<span class="params">x, y, array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;<span class="number">0</span> || y&lt; <span class="number">0</span>|| x&gt;= array.length || y&gt;= array[<span class="number">0</span>].length || array[x][y] ===<span class="string">"0"</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">    array[x][y] = <span class="string">"0"</span>;</span><br><span class="line">    dfs(x<span class="number">-1</span>, y, array);</span><br><span class="line">    dfs(x+<span class="number">1</span>, y, array);</span><br><span class="line">    dfs(x, y<span class="number">-1</span>, array);</span><br><span class="line">    dfs(x, y+<span class="number">1</span>, array);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1144,12 +1157,12 @@ Output: 3</code></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">

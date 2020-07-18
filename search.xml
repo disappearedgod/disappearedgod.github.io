@@ -1598,4 +1598,47 @@ end</code></pre></li>
         <tag>项目介绍</tag>
       </tags>
   </entry>
+  <entry>
+    <title>面试｜系统设计｜ 大纲</title>
+    <url>/2020/07/19/%E9%9D%A2%E8%AF%95%EF%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%EF%BD%9C%20%E5%A4%A7%E7%BA%B2%20/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="美国"><a href="#美国" class="headerlink" title="美国"></a>美国</h2><p><a href="https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=169343&extra=page%3D1%26filter%3Dtypeid%26typeid%3D1025%26typeid%3D1025" target="_blank" rel="noopener">From</a></p>
+<p>所谓的system design是要做一个能够在现实世界中运行的系统的设计，所以说system design可以cover任何topic，从建大桥到做手机到做网站，而局限到软件，尤其是面试的scenario，大体局限于以下几种：</p>
+<ol>
+<li>Web application，典型例子：设计一个e-commerce商品的detail page(参考Amazon商品detail page)。设计一个online小游戏。设计一个论坛。</li>
+<li>简单的Web Service，典型例子：设计一个short url service。</li>
+<li>实时／半实时的消息update，典型例子：messenger，news feed。</li>
+<li>数据系统，典型例子：top url hits, unique url hits</li>
+<li>内容分发系统，典型例子：设计Netflix CDN</li>
+<li>专业知识，典型例子：推荐系统，分布式系统基础架构，搜索。。。</li>
+</ol>
+<p>个人认为，要想在System Design上面达到像刷题那样的熟练程度，对于刚刚入行一两年甚至三四年的朋友来说，是不可能的，因为这些问题要想准确答出，已经远远超出了对junior engineer的要求，甚至已经是senior engineer的水准。</p>
+<p>但是即使面试官并没有期望你达到senior engineer的水准，至少他还是想要通过这个问题来摸清你的工程经验，如果所答完全非所问，那么给面试官留下的印象将是非常糟糕的。你的方案可以不是最优的，甚至可能离最优有一段距离，但是你的方案一定不能是ridiculous的。起码在小的scale上要能有可行性，可以展现你的一些基本design sense。</p>
+<p>基础知识的准备：</p>
+<ol>
+<li>数据库 —— 了解relational数据库(Oracle/postgres)的基本知识，了解数据库的partition，了解查询，了解数据库的replication；了解现在流行的NoSQL databases: key-value database (Riak/DynamoDB)，document based(mongodb)，graph based, big table(or column based - HBase)…这里DynamoDB有个paper，关于eventually consistence需要明白CAP定理。</li>
+<li>队列服务—— 了解Kafka或者Kinesis，明白队列服务的应用场景</li>
+<li>Web层，了解MVC，具体技术可以了解Spring，Nodejs</li>
+<li>前端，了解Javascript，Html</li>
+<li>了解SOAP和RESTful</li>
+<li>理解cache——如何以及在何种情况下运用cache降低latency</li>
+<li>理解现代分布式系统需要大量monitor以及log analysis</li>
+<li>理解系统中不能有single point of failure，从failure的角度出发设计系统，运用Write Ahead Log进行故障恢复，充分replicate你的service所以任何一个机器、集群、机房的灾难都不会对你的整体服务造成不可挽回的影响</li>
+<li>处理高并发，明白资源共享是影响并发的主要原因之一（另一个原因是进程间通信）——如何decouple共享资源，提高并发效率</li>
+<li>明白基本的效率评定标准，如TPS。。。</li>
+<li>理解一些分布式系统的基本概念，如上面提到的CAP，以及Consistent Hashing，Vector Clock</li>
+<li>读一些paper，如Akamai的CDN，Amazon的Dynamo，Google的Map-reduce（很老嗯）等等</li>
+<li>亲手实现一个简单的网站，从前端到数据库都接触一些</li>
+<li>了解Hadoop的基本功能，如HDFS，Map-Reduce。</li>
+<li>了解Apache Storm的基本功能。</li>
+<li>结合所学的基础知识，考虑你所设计的系统的Availability，Scalability和Performance.</li>
+</ol>
+<h1 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h1><ol>
+<li><a href="https://medium.com/@NetflixTechBlog" target="_blank" rel="noopener">medium NetflixTechBlog</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>面试</category>
+        <category>系统设计</category>
+      </categories>
+  </entry>
 </search>
